@@ -5,10 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
     BrowserRouter,
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
-    RouterProvider,
   } from "react-router-dom";
 
   
