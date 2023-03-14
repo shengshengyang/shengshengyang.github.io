@@ -31,5 +31,5 @@ header {
 }
 
 header.hide {
-    transform: translateY(-60px);
+    transform: translateY(-55px);
 }
