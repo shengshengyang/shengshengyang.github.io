@@ -17,7 +17,10 @@ function App() {
     case '/Sitemap':
       isRoutes = true;
       break;
+    default:
+      break;
   }
+  
 
   return (
     <div className='wrapper'>
