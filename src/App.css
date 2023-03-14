@@ -3,21 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
-
-.App-header{
-  background-color: #282c34;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.App-footer{
-  background-color: #282c34;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.content{
+  padding-top: 130px;
+  padding-left: 14px;
 }

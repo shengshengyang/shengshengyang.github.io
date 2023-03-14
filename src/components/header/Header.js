@@ -5,12 +5,12 @@ import './Header.css'
 function Header() {
   return (
     <header className="header">
-      <h1>My Website</h1>
+      <h2>Dean's Blog</h2>
       <nav className="nav">
         <ul>
-          <li><Link to="/"><p>Home</p></Link></li>
-          <li> <Link to="about"><p>About</p></Link></li>
-          <li><Link to="sitemap"><p>Sitemap</p></Link> </li>
+          <li><Link to="/">Home</Link></li>
+          <li> <Link to="about">About</Link></li>
+          <li><Link to="sitemap">Sitemap</Link> </li>
         </ul>
         
        

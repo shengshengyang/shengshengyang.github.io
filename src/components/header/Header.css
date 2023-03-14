@@ -1,4 +1,27 @@
+ul{
+    padding-left: 10px;
+}
 li {
+    text-align: left;
     display: inline-block;
     padding: 3px;
+    tab-size: 14px;
+}
+
+a{
+    color: #000814;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: #ffd60a;
+}
+
+header{
+    background-color: #ffc300;
+    color: #000814;
+    padding: 14px;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
