@@ -14,7 +14,7 @@ function App() {
   switch(location.pathname){
     case '/about':
     case '/':
-    case '/Sitemap':
+    case '/sitemap':
       isRoutes = true;
       break;
     default:
@@ -29,7 +29,7 @@ function App() {
     <Routes>
       <Route path='/about' element={<About/>}/>
       <Route path='/' element={<MainPage/>}/>
-      <Route path='/Sitemap' element = {<SitemapPage/>}/>
+      <Route path='/sitemap' element = {<SitemapPage/>}/>
       <Route path='*' element = {<ErrorPage/>}/>
     </Routes>
     </div>
