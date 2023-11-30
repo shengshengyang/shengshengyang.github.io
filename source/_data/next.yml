@@ -1,4 +1,4 @@
-scheme: Pisces
+scheme: Gemini
 social:
   GitHub: https://github.com/shengshengyang || fab fa-github
 back2top:
@@ -16,3 +16,6 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
+
+local_search:
+  enable: true
