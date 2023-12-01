@@ -4,6 +4,6 @@ date: {{ date }}
 tags:
 - [aws]
 - [cloud]
-categories
+categories:
 - [aws]
 ---

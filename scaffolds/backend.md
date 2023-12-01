@@ -3,6 +3,6 @@ title: {{ title }}
 date: {{ date }}
 tags:
 - [backend]
-categories
+categories:
 - [backend]
 ---
