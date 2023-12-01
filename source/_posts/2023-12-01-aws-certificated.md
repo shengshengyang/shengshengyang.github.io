@@ -6,9 +6,8 @@ tags:
 - [cloud]
 - [certification]
 categories:
-- [aws]
-aws:
-- [證照之路]
+- [aws, ccp(CLF-02)]
+banner_img: /image/ccp-badge.png
 ---
 ## 考試動機
 因為公司的項目都上雲，所以希望去了解多一點雲端相關，所以就開始了備考之路，也順利取的了證照

@@ -5,6 +5,9 @@ tags:
 - [SpringBoot]
 - [MariaDb]
 - [nas]
+categories:
+- [java, springBoot]
+- [Database, MariaDb]
 ---
 原先是想用mySQL, 無奈於購置的synology nas 型號沒有預設支援，僅有mariaDB 可以裝，於是就開始了連接的過程
 
