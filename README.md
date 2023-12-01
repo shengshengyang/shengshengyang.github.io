@@ -1,2 +1,23 @@
 # shengshengyang.github.io
-### 使用HEXO NEXT 架站
+### 使用HEXO fluid 架站
+
+安裝
+```
+npm install
+```
+
+使用
+```
+npm install hexo-cli
+```
+```
+npm install hexo-theme-fluid
+```
+生成html
+``` shell
+hexo g
+```
+serve
+``` shell
+hexo s
+```
