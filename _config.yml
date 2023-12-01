@@ -5,7 +5,7 @@
 # Site
 title: Dean Yang Coding Blog
 subtitle: '菜鳥工程師,菜鳥爸的紀錄'
-description: ''
+description: '紀錄轉職仔的進化人生'
 keywords: 'coding'
 author: Dean Yang
 language: zh-TW
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

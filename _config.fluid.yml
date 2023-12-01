@@ -1,0 +1,17 @@
+navbar:
+  blog_title: 轉職工程師，菜鳥爸紀錄
+footer:
+  statistics:
+    enable: true
+    source: "busuanzi"  # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: "總量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: "總數 {} 人"
+index:
+  slogan:
+    enable: true
+    # Height ratio of banner image
+    # Available: 0 - 100
+    banner_img_height: 70
+    # 为空则按 hexo config.subtitle 显示
+    # If empty, text based on `subtitle` in hexo config
+    text: "朝穿皮襖午穿紗，抱著兒子打代碼"
