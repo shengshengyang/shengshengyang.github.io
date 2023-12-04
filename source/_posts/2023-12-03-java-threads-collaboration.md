@@ -5,7 +5,7 @@ tags:
 - [java]
 - [thread]
 categories:
-- [backend , java]
+- [java]
 date: 2023-12-03 00:40:56
 ---
 java中使用multi threads 時，會常發生兩個方法需要用到同一個資源的狀況，若沒有處理好就會造成`race condition` 
