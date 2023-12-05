@@ -6,6 +6,8 @@ tags:
 - [backend]
 category:
 - [linux]
+index_img: ../image/banner/linux.jpg
+banner_img: ../image/banner/linux1.webp
 ---
 ## 記錄一些工作中常用的指令
 ### 展開紀錄並查詢

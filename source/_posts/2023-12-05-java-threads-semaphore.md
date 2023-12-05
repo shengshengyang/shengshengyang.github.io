@@ -7,6 +7,8 @@ tags:
 - [thread]
 categories:
 - [java]
+index_img: ../image/banner/java_index.jpg
+banner_img: ../image/banner/java_banner_brown.jpg
 ---
 ## Semaphore
 ### 特性

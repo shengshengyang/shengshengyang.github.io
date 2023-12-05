@@ -7,6 +7,8 @@ tags:
 - [jdbc]
 categories:
 - [java]
+index_img: ../image/banner/java_index.jpg
+banner_img: ../image/banner/java_banner_brown.jpg
 ---
 今天在開心測試的途中發現程式會停在奇怪的地方，停的地方也不是由我變更的，後來不斷往前追才發現是我新加的jdbc conn 忘記關了，造成下一個要call 的時候連線數占用，最常見的流程應該如下
 
@@ -14,7 +16,7 @@ categories:
 - #### 建立連線
 - #### try-with-resources
 - #### finally 關閉連線
-```java
+``` java
 Connection connection = null;
 try {
     connection = DriverManager.getConnection(url, username, password);

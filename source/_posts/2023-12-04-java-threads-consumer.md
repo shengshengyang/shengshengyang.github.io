@@ -7,6 +7,8 @@ tags:
 - [thread]
 categories:
 - [java]
+index_img: ../image/banner/java_index.jpg
+banner_img: ../image/banner/java_banner_brown.jpg
 ---
 在一般情況下，使用`synchronized` 簡單且安全的選擇，在需要額外控制的情況下，考慮使用 `ReentrantLock`。
 ### ReentrantLock 特性

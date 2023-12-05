@@ -5,6 +5,8 @@ tags:
 - [hexo]
 categories:
 - [frontend, Hexo]
+index_img: ../image/banner/hexo_index.jpg
+banner_img: ../image/banner/hexo_banner.jpg
 ---
 ## 開啟財富密碼
 ### buy me a coffee

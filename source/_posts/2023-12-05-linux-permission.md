@@ -2,6 +2,12 @@
 title: linux 權限設定
 date: 2023-12-05 11:48:32
 tags:
+- [linux]
+- [backend]
+category:
+- [linux]
+index_img: ../image/banner/linux.jpg
+banner_img: ../image/banner/linux1.webp
 ---
 ### 查看linux 中的權限
 ``` shell

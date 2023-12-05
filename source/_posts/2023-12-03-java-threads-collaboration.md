@@ -7,6 +7,8 @@ tags:
 categories:
 - [java]
 date: 2023-12-03 00:40:56
+index_img: ../image/banner/java_index.jpg
+banner_img: ../image/banner/java_banner_brown.jpg
 ---
 java中使用multi threads 時，會常發生兩個方法需要用到同一個資源的狀況，若沒有處理好就會造成`race condition` 
 要避免可以透過劃分`Critical Eegion` 來達成，要進入之前先用 `Lock` 上鎖，上鎖期前所有thread 都無法訪問，直到結束後再做 `unlock`

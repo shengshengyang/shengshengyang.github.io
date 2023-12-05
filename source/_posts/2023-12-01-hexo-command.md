@@ -5,6 +5,8 @@ tags:
 - [hexo]
 categories:
 - [frontend, Hexo]
+index_img: ../image/banner/hexo_index.jpg
+banner_img: ../image/banner/hexo_banner.jpg
 ---
 ### 清除生成檔案
 請注意不要再 serve 的狀況下去做清除，不然有些沒有要清掉的資源會一起被刪掉
