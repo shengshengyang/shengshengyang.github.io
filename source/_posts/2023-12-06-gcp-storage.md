@@ -1,10 +1,11 @@
 ---
-title: GCP storage
+title: Google Cloud 核心基礎架構課程-storage
 date: 2023-12-06 14:37:37
 tag:
 - [GCP]
 - [backend]
 - [cloud]
+- [storage]
 category:
 - [GCP, Google Cloud 核心基礎架構課程]
 index_img: ../image/banner/GCP_index.png

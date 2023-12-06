@@ -1,10 +1,11 @@
 ---
-title: GCP Virtual Machines and Networks
+title: Google Cloud 核心基礎架構課程- Virtual Machines and Networks
 date: 2023-12-06 13:05:28
 tag:
 - [GCP]
 - [backend]
 - [cloud]
+- [VM]
 category:
 - [GCP, Google Cloud 核心基礎架構課程]
 index_img: ../image/banner/GCP_index.png
