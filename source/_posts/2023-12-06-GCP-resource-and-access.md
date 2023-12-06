@@ -13,7 +13,7 @@ banner_img: ../image/banner/GCP_banner.jpg
 
 ## google Cloud Resource hierachy
 
-![img.png](../image/GCP_hierarchy.png)
+![img.png](../image/GCP/GCP_hierarchy.png)
 
 ### 權限繼承
 
@@ -25,42 +25,42 @@ banner_img: ../image/banner/GCP_banner.jpg
 
 這意味著如果你對一個文件夾應用了一個政策，它也將應用於該文件夾內的所有專案。
 
-### project
+## Project
 
-![img.png](../image/GCP_project.png)
+![img.png](../image/GCP/GCP_project.png)
 
 - 專案是啟用和使用Google Cloud服務的基礎，例如管理API、啟用計費、添加和移除協作者，以及啟用其他Google服務。
 - 每個專案都是一個獨立的隔離單元，每個資源都屬於確切的一個專案。專案可以有不同的擁有者和使用者，因為它們是獨立計費和管理的。
 
-#### project ID：
+### project ID：
 
 由Google分配的全球唯一標識符，一經創建後無法更改（即不可變）。專案ID在不同的情境下用於告知Google Cloud要處理的確切專案。
 
-#### project name：
+### project name：
 
 是由用戶創建的，不需要是唯一的，並且可以隨時更改，因此不是不可變的。
 
-#### project number：
+### project number：
 
 Google Cloud還為每個專案分配一個唯一的專案編號。了解這些由Google生成的編號很有幫助，但在本課程中我們不會深入探討它們。它們主要在Google
 Cloud內部使用，用於跟蹤資源。
 
-### folder
-![img.png](../image/GCP_folder.png)
+## folder
+![img.png](../image/GCP/GCP_folder.png)
 - 文件夾中的專案和子文件夾包含繼承自該文件夾分配的政策和權限的資源。
 - 文件夾可以包含專案、其他文件夾，或兩者組合
 - 可以使用文件夾在組織中建立層次結構，將專案分組。例如，您的組織可能包含多個部門，每個部門都擁有自己的一套Google Cloud資源。文件夾讓您以每個部門為基礎分組這些資源。
 - 文件夾使團隊有能力委派管理權限，以便他們可以獨立工作。
 
-### 介面
+## 介面
 實際介面可在此選擇三種不同的階層及其可控管的資源
-![img.png](..//image/GCP_access.png)
+![img.png](../image/GCP/GCP_access.png)
 ## Identity and Access Management (IAM)
 
 ### IAM roles
-![img.png](../image/GCP_IAM.png)
+![img.png](../image/GCP/GCP_IAM.png)
 ### 層級
-![img.png](../image/GCP_IAM_layer.png)
+![img.png](../image/GCP/GCP_IAM_layer.png)
 
 ### 不能往上影響
 
@@ -72,7 +72,7 @@ Cloud內部使用，用於跟蹤資源。
 
 #### basic IAM
 
-![img.png](../image/GCP_basic_role.png)
+![img.png](../image/GCP/GCP_basic_role.png)
 基本角色的範圍相當廣泛。當應用於Google Cloud專案時，它們影響該專案中的所有資源。基本角色包括擁有者、編輯者、查看者和計費管理員。
 
 - #### 專案查看者（Project Viewer）：
@@ -86,7 +86,7 @@ Cloud內部使用，用於跟蹤資源。
 
 #### Predefined roles
 
-![img.png](../image/GCP_Predefined_role.png)
+![img.png](../image/GCP/GCP_Predefined_role.png)
 
 #### 預定義角色
 
@@ -97,7 +97,7 @@ Engine資源。這樣一來，擁有這些角色的人就可以執行一組特�
 
 #### Custom roles
 
-![img.png](../image/GCP_cusIAM.png)
+![img.png](../image/GCP/GCP_cusIAM.png)
 
 #### 自訂角色
 
@@ -106,11 +106,11 @@ Engine虛擬機器，但不能重新配置它們。自訂角色可以實現這�
 
 ### 介面
 
-![img.png](../image/GCP_IAM_layout.png)
+![img.png](../image/GCP/GCP_IAM_layout.png)
 
 ## Service accounts
 
-![img.png](../image/GCP_service_account.png)
+![img.png](../image/GCP/GCP_service_account.png)
 
 ### 給服務用的IAM
 
@@ -120,8 +120,8 @@ Engine虛擬機器，但不能重新配置它們。自訂角色可以實現這�
 
 ## Cloud Identity
 
-![img.png](../image/GCP_identity.png)
-![img.png](../image/GCP_identity2.png)
+![img.png](../image/GCP/GCP_identity.png)
+![img.png](../image/GCP/GCP_identity2.png)
 
 ### identity 中控
 
@@ -133,4 +133,4 @@ Engine虛擬機器，但不能重新配置它們。自訂角色可以實現這�
 
 ## Interacting with Google Cloud
 
-![img.png](../image/GCP_interact.png)
+![img.png](../image/GCP/GCP_interact.png)
