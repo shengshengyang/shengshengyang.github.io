@@ -160,7 +160,7 @@ Engine VMs。
 
 ![img.png](../image/GCP/img.png)
 
->### IPsec VPN creates dynamic connections
+### IPsec VPN creates dynamic connections
 
 #### 建立虛擬私有網路連接的方法：
 
@@ -168,7 +168,7 @@ Engine VMs。
 Router的功能。Cloud Router允許其他網路和Google VPC使用邊界網關協議在VPN上交換路由信息。使用這種方法，如果在Google
 VPC中新增子網，您的本地網路將自動獲得到它的路由。
 
->### Direct peering routes traffic through a Google PoP
+### Direct peering routes traffic through a Google PoP
 
 #### 使用互聯網連接網路的考慮：
 
@@ -179,7 +179,7 @@ VPC中新增子網，您的本地網路將自動獲得到它的路由。
 第二個選擇是考慮使用Direct
 Peering與Google建立“peering”關係。Peering意味著將路由器放置在與Google點對點存在的相同的公共數據中心，並使用它在網路之間交換流量。Google在全球擁有100多個點對點存在（PoPs）。
 
->### Carrier peering allows access to Google Workspace
+### Carrier peering allows access to Google Workspace
 
 #### 進入點對點存在的客戶：
 
@@ -191,7 +191,7 @@ Cloud產品。
 
 不過，peering的一個缺點是它並不受Google服務水平協議的覆蓋。
 
->### Dedicated Interconnect is a direct connection to Google
+### Dedicated Interconnect is a direct connection to Google
 
 #### 使用Dedicated Interconnect的優勢：
 
@@ -205,7 +205,7 @@ Cloud產品。
 
 這些連接還可以通過VPN進行備份，以實現更高的可靠性。
 
->### Partner Interconnect links your on-prem with your VPC
+### Partner Interconnect links your on-prem with your VPC
 
 #### Partner Interconnect的選項：
 
