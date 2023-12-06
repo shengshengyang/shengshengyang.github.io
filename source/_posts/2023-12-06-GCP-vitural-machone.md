@@ -158,7 +158,7 @@ Engine VMs。
 
 ### 其他網路的連接
 
-![img.png](../image/GCP/img.png)
+![img.png](../image/GCP/GCP_connect.png)
 
 ### IPsec VPN creates dynamic connections
 
