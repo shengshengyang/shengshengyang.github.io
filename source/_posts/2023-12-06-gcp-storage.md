@@ -16,8 +16,8 @@ banner_img: ../image/banner/GCP_banner.jpg
 
 ### Structured data
 
+![img.png](../image/GCP/GCP_structure_data.png)
 結構化數據是指那些在預定義的數據模型中有組織的數據，例如關聯數據庫中的數據。它們通常由欄位和記錄組成，並可以輕鬆地在電子表格或數據庫中進行搜索和排序。
-
 ### Unstructured data
 
 非結構化數據是指不遵循預定義數據模型的數據，並且不容易被數據庫管理系統（DBMS）組織和分析。這些數據類型可能包括電子郵件、Word文件、PDF文件、音頻、視頻等。

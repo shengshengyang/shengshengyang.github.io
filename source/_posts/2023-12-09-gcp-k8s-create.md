@@ -5,8 +5,10 @@ tags:
 - [GCP]
 - [backend]
 - [cloud]
+- [k8s]
 category:
 - [GCP]
+- [k8s]
 index_img: ../image/banner/GCP_GKE.png
 banner_img: ../image/banner/GCP_k8s_banner.png
 ---
