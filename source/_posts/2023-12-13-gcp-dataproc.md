@@ -7,10 +7,10 @@ tags:
 - [backend]
 - [cloud]
 - [big data]
-  category:
+category:
 - [GCP]
-  index_img: ../image/banner/GCP_index.png
-  banner_img: ../image/banner/GCP_banner.jpg
+index_img: ../image/banner/GCP_index.png
+banner_img: ../image/banner/GCP_banner.jpg
 
 ---
 
