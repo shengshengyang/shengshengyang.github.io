@@ -2,7 +2,6 @@
 title: gcp dataproc 大數據應用
 date: 2023-12-13 17:08:16
 tags:
-
 - [GCP]
 - [backend]
 - [cloud]

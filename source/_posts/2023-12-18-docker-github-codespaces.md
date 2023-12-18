@@ -4,7 +4,7 @@ date: 2023-12-18 23:30:52
 tags:
 - [github]
 - [docker]
-categories:
+category:
 - [docker]
 index_img: ../image/banner/github_codespace_index.png
 banner_img: ../image/banner/github_codespace_banner.png

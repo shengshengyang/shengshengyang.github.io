@@ -4,7 +4,7 @@ date: 2023-12-15 14:44:02
 tags:
 - [backend]
 - [docker]
-categories:
+category:
 - [docker]
 index_img: ../image/banner/docker_index.jpg
 banner_img: ../image/banner/docker_banner.png
