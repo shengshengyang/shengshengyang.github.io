@@ -16,7 +16,7 @@ index:
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
     text: "朝穿皮襖午穿紗，抱著兒子打代碼"
-
+favicon: ./image/logo/cat-logo.png
 #---------------------------
 # 关于页
 # About Page
