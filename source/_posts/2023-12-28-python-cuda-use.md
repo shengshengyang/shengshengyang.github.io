@@ -9,6 +9,8 @@ tags:
 - [pytorch]
 category:
 - [python]
+index_img: ../image/banner/pytorch_index.png
+banner_img: ../image/banner/pytorch_banner.jpg
 ---
 # pytorch 的 cuda use
 ## 所需環境
