@@ -10,7 +10,7 @@ category:
 index_img: ../image/banner/docker_index.jpg
 banner_img: ../image/banner/docker_banner.png
 ---
-## 啟動命令
+## CMD
 - 啟動時默認執行
 - 如果再docker 起來時啟動了其他命令，CMD內建的指令會被取代
 - 就算定義了多個CDM 只有 {% label danger @最後一個 %} 會被執行
@@ -80,6 +80,43 @@ ENTRYPOINT ["executable","param1","param2"]
 ```dockerfile
 ENTRYPOINT command param1 param2
 ```
+
+### example 
+由於 {%label danger @entrypoint %} 的命令一定會被執行，因此可以搭配CMD用來當做 {% label info @傳值 %} 使用，
+
+- dockerfile
+  ```dockerfile
+  FROM ubuntu:latest
+  
+  # 定義 ENTRYPOINT
+  ENTRYPOINT ["/bin/bash", "-c"]
+  
+  # 定義 CMD，提供默認命令
+  CMD ["echo", "Hello, World!"]
+  ```
+- 傳遞參數: 此時的外面的命令會取代default
+  ```shell
+  docker build -t my-image .
+  docker run my-image echo "Custom Hello!"
+  ```
+  
+### example2
+- dockerfile
+  ```dockerfile
+  FROM ubuntu:latest
+  
+  # 定義 ENTRYPOINT
+  ENTRYPOINT ["/bin/bash", "-c"]
+  
+  # 定義 CMD，提供默認命令，並使用環境變數
+  CMD ["echo", "${GREETING:-Hello}, ${TARGET:-World}!"]
+  ```
+- bash
+  ```shell
+  docker build -t my-image .
+  docker run -e GREETING=Goodbye -e TARGET=Universe my-image
+  ```
+這樣，CMD 中的 `${GREETING}` 將被替換為 `Goodbye`，`${TARGET}` 將被替換為 `Universe`，最終執行的命令為 /bin/bash -c "echo Goodbye, Universe!"。
 
 ## 兩者比較
 `ENTRYPOINT` 與 `CMD` 的不同之處在於，`ENTRYPOINT` 會把容器啟動時的命令視為其參數，而 `CMD` 僅提供默認值，可以被 docker run 命令中指定的命令覆蓋。
