@@ -21,10 +21,19 @@ docker image ls
 ```shell
 docker image rm [OPTIONS] IMAGE [IMAGE...]
 ```
+
 ### 創建並run
+
 以nginx 為例
+
 ```shell
 docker container run nginx
+# 交互模式 / run 之後開啟shell
+docker container run nginx -it
+# 後臺模式
+docker container run -d nginx
+# 指定port
+docker container run -p 80:80 nginx
 ```
 ### 容器清單
 ```shell
@@ -37,6 +46,8 @@ docker container ls
 docker container stop 25
 # container 也可以不打
 docker stop 25
+# 停止全部容器
+docker container stop $(docker container ps -aq)
 ```
 
 ### 查看狀態
@@ -47,4 +58,13 @@ docker container ps -a
 ### 刪除容器
 ```shell
 docker container rm 1a
+# 刪除全部容器
+docker container rm $(docker container ps -aq)
+```
+
+### 看log
+```shell
+docker container logs <ID>
+# 檢視實時log
+docker containter logs -f <ID>
 ```
