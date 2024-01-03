@@ -7,12 +7,14 @@ layout: about
 ## 努力連結
 
 ### aws ccp
+<a href="https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded">
+<img class="cr-badges-full-badge__img" src="https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner badge image. Certification. Foundational level. Issued by Amazon Web Services Training and Certification" width="340" height="340">
+</a>
+
 [https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded](https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded)
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="13257ca1-ca40-4080-9bac-a34c1c0083d8" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 ### google skill boost
 
-[https://www.cloudskillsboost.google/public_profiles/49edaab0-be83-48a9-a4a2-52c94ac1bbb2](https://www.cloudskillsboost.google/public_profiles/49edaab0-be83-48a9-a4a2-52c94ac1bbb2)
 {% gi 6 3-3 %}
 <img alt="Badge for Build and Secure Networks in Google Cloud" src="https://cdn.qwiklabs.com/6QsPX5Wdg0eHWFed3ZKTbX2c88yVFGgaWPlYt%2BJdp4Q%3D">
 <img alt="Badge for Perform Foundational Infrastructure Tasks in Google Cloud" src="https://cdn.qwiklabs.com/GU6CgwwDh1bw57WwDUTBc8jexs3fOGXQbGaTqqCrevo%3D">
@@ -22,3 +24,4 @@ layout: about
 <img alt="Badge for Google Cloud Computing Foundations: Cloud Computing Fundamentals" src="https://cdn.qwiklabs.com/dGJj9QGPM0XKy1XJZwIrl5HAzGkopR5n8J5Ex1HzNUs%3D">
 
 {% endgi %}
+[https://www.cloudskillsboost.google/public_profiles/49edaab0-be83-48a9-a4a2-52c94ac1bbb2](https://www.cloudskillsboost.google/public_profiles/49edaab0-be83-48a9-a4a2-52c94ac1bbb2)
