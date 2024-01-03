@@ -27,6 +27,6 @@ about:
   banner_img_height: 80  # available: 0 - 100
   avatar: ./image/logo/cat-logo.png
   name: Dean Yang
-  intro: banner是可愛的鵝子，從醫療業轉職的轉職仔，努力的補上許多基礎知識並多方發展，目前是朝著偏後端的全端仔走。
+  intro: banner是可愛的鵝子，從醫療業轉職來，努力的補上許多基礎知識並多方發展，目前是朝著偏後端的全端走。
   icons:
    - { class: 'iconfont icon-github-fill', link: 'https://github.com/shengshengyang', tip: 'GitHub' }
