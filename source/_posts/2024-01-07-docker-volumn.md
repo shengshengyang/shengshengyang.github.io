@@ -1,13 +1,13 @@
 ---
-title: docker volumn /
+title: docker volume 及 bind mount 的比較
 date: 2024-01-07 00:01:01
 tags:
 - [backend]
 - [docker]
 category:
 - [docker]
-index_img: ../image/banner/remote_explorer_index.png
-banner_img: ../image/banner/docker_banner.png
+index_img: ../image/banner/docker_index.jpg
+banner_img: ../image/docker/docker_volume.png
 
 ---
 
