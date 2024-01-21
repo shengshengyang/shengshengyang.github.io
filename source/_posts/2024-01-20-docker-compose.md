@@ -62,3 +62,13 @@ volumes: # 可選，相當於 docker volume create
 networks: # 可選，相當於 docker network create
 
 ```
+
+## 使用
+- `-d` 或 `--detach`: 在後台運行容器，不顯示日誌輸出。
+- `--build`: 在運行之前重新構建映像。
+- `--force-recreate`: 強制重新創建容器，即使已經存在。
+- `--no-deps`: 不啟動依賴服務。
+- `--scale SERVICE=NUM`: 指定要啟動的服務實例數量。
+- `--remove-orphans`: 刪除無關聯的容器。
+- `--abort-on-container-exit`: 當容器退出時立即停止所有服務。
+- `--timeout TIMEOUT`: 設置超時時間，如果超過指定時間沒有完成，則停止服務
