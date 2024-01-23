@@ -44,7 +44,7 @@ pip install docker-compose
 最新版本號查詢: [https://github.com/docker/compose/releases](https://github.com/docker/compose/releases)
 
 ## 結構
-```shell
+```yaml
 version: "3.8"
 
 services: # 容器
@@ -64,6 +64,7 @@ networks: # 可選，相當於 docker network create
 ```
 
 ## 使用
+### 基礎指令
 - `-d` 或 `--detach`: 在後台運行容器，不顯示日誌輸出。
 - `--build`: 在運行之前重新構建映像。
 - `--force-recreate`: 強制重新創建容器，即使已經存在。
@@ -72,3 +73,77 @@ networks: # 可選，相當於 docker network create
 - `--remove-orphans`: 刪除無關聯的容器。
 - `--abort-on-container-exit`: 當容器退出時立即停止所有服務。
 - `--timeout TIMEOUT`: 設置超時時間，如果超過指定時間沒有完成，則停止服務
+
+### 水平擴展
+可以利用 Docker Compose 的`服務副本（replicas）`特性
+{% note danger %}
+適用於無狀態或者可在多實例間共享狀態的應用
+{% endnote %}
+
+#### 範例
+```yaml
+version: '3.8'
+
+services:
+  web:
+    image: my-web-app:latest
+    deploy:
+      replicas: 3
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+
+networks:
+  webnet:
+
+```
+### 環境變量
+環境變量提供docker compose 在啟動時可以快速區分不同環境如(開發，生產等)
+#### yaml 定義
+```yaml
+version: '3.8'
+services:
+  web:
+    image: my-web-app:latest
+    environment:
+      - DB_HOST=dbserver
+      - DB_PORT=5432
+
+```
+
+#### 使用 `.env` 文件
+```text
+DB_HOST=dbserver
+DB_PORT=5432
+```
+```yaml
+version: '3.8'
+services:
+  web:
+    image: my-web-app:latest
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+
+```
+#### 使用外部文件
+```yaml
+version: '3.8'
+services:
+  web:
+    image: my-web-app:latest
+    env_file:
+      - web-variables.env
+
+```
+
+#### command 中使用
+```shell
+DB_HOST=dbserver DB_PORT=5432 docker-compose up
+```
+
+{% note danger %}
+確保不要在環境變量中設定隱私，如密碼或私鑰，尤其是在將 `docker-compose.yml` 文件和相關配置文件納入版本控制系統時。
+如果使用 .env 文件或外部文件，需確保這些文件的安全性。
+{% endnote %}
