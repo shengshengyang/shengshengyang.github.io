@@ -28,7 +28,7 @@ banner_img: ../image/banner/java_banner_brown.jpg
 - [java array 的功能實作](../../../../2024/01/17/java-array)
 
 ### 2. 集合 (Collection)
-
+- [java collection 介紹](../../../../2024/01/26/java-collection)
 #### 列表 (List)
 
      - ArrayList
