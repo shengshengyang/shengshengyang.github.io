@@ -2,7 +2,6 @@
 title: Java Collection
 date: 2024-01-26 00:06:00
 tags:
-
 - [java]
 - [data structure]
 category:
@@ -22,7 +21,7 @@ banner_img: ../image/banner/java_banner_brown.jpg
 
 `Collection` 是一個框架，用於存儲或操作物件，主要的接口有
 
-- List：保持元素插入的順序，並允許重複元素。
+- List：保持元素插入的順序，並允許重複元素。- [java List 介紹](../../../../2024/01/27/java-list)
 - Set：不允許重複元素，並且不保證順序（除非使用像 LinkedHashSet 這樣的特定類）。
 - Queue：用於保存要按加入順序處理的一組元素，如任務排隊或消息隊列。
   這些接口皆繼承 {% label danger @Iterable %} ，代表所有集合皆可迭代
@@ -65,3 +64,6 @@ Collection 接口是單列集合的根接口，它提供了集合的基本操作
 
 檢查集合是否包含特定元素。
 
+## 擴充
+有時候我們不想實作整個Collection，可以只挑想要的實作
+![img.png](../image/java_collection_abstract.png)

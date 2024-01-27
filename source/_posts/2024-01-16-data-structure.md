@@ -30,6 +30,7 @@ banner_img: ../image/banner/java_banner_brown.jpg
 ### 2. 集合 (Collection)
 - [java collection 介紹](../../../../2024/01/26/java-collection)
 #### 列表 (List)
+- [java List 介紹](../../../../2024/01/27/java-list)
 
      - ArrayList
      - LinkedList
