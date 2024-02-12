@@ -1,13 +1,13 @@
 ---
-title: 開源BI - apache superset
+title: 開源BI - apache superset 基礎資料設定
 date: 2024-02-10 22:06:51
 tags:
 - [BI]
 - [superset]
 category:
 - [BI]
-index_img: ../image/banner/superset_index.jpg
-banner_img: ../image/banner/superset_banner.jpg
+index_img: ../image/banner/superset_index.png
+banner_img: ../image/banner/superset_banner.png
 ---
 # apache superset
 GPT
@@ -34,3 +34,31 @@ docker compose up
 
 
 ## 介面
+
+### 首頁
+會有面板跟圖表兩種
+![](../image/superset_index.png)
+
+### connect database
+
+#### setting
+
+在設定中可以找到資料池連線
+![](../image/superset_setting.png)
+
+#### credentials
+
+輸入連線資訊
+
+![](../image/superset_connect_database.png)
+
+### dataset
+
+從資料庫選取的資料集，會自動取出欄位
+
+![](../image/superset_dataset.png)
+
+### query lab
+
+與 `dateset` 不同的是這邊可以全課製打sql, 如有需要table join 等操作必須使用此項
+![](../image/superset_querylab.png)
