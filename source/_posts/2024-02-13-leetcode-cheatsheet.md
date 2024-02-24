@@ -18,6 +18,8 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 ##  列表
 這邊列出全部，會在每一個sheet `邊刷邊補上文章`
 
+- 心智圖: [https://beta.scrintal.com/b/leetcode--18tp0 ](https://beta.scrintal.com/b/leetcode--18tp0)
+
 ### Two pointers: one input, opposite ends
 [Two pointers: one input, opposite ends](../../../../2024/02/14/two-pointer-one)
 
