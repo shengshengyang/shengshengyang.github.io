@@ -15,6 +15,29 @@ banner_img: ../image/banner/design-pattern-banner.gif
 
 ## 分類
 
+### SOLID原則
+
+SOLID原則是面向對象設計和程式開發中的一組五個基本原則，旨在促進軟體的可讀性、可維護性和擴展性
+
+- 單一職責原則（Single Responsibility Principle, SRP）
+   每個類應該只有一個引起它變化的原因。這個原則強調，一個類應該專注於單一的職責或功能。當一個類承擔過多的職責時，它在面對修改的需求時將變得脆弱和不靈活。
+
+- [開放封閉原則 (OCP: Open Closed Principle)](../../../../2024/03/30/ocp)
+   軟體實體（類、模塊、函數等）應該對擴展開放，對修改封閉。這意味著一個實體允許其行為以擴展的形式被增加，但是不應該修改現有的代碼。
+
+
+- 里氏替換原則（Liskov Substitution Principle, LSP）
+   子類別應該能夠替換它們的基類別（父類別）而不影響程式的正確性。這個原則強調繼承的正確性，子類應當能夠完整地實現父類的行為。
+
+
+- 介面隔離原則（Interface Segregation Principle, ISP）
+   不應該強迫客戶依賴於他們不使用的接口。這個原則鼓勵創建細分的接口，讓實現類只需要關心它們真正需要的方法，減少不必要的依賴。
+
+
+- 依賴倒置原則（Dependency Inversion Principle, DIP）
+   高層模塊不應該依賴於低層模塊，它們都應該依賴於抽象；抽象不應該依賴於細節，細節應該依賴於抽象。這個原則鼓勵依賴於抽象類或接口，而不是具體類，從而降低系統各部分之間的耦合度。
+
+
 ### 創建型模式（Creational Patterns）
 創建對象時隱藏創建邏輯的方式，而不是使用new關鍵字直接實例化對象。
 
@@ -43,6 +66,8 @@ banner_img: ../image/banner/design-pattern-banner.gif
 - Visitor（訪問者模式）
 - Mediator（中介者模式）
 - Iterator（迭代器模式）
+
+### SOLID
 
 
 ### 推薦課程
