@@ -19,7 +19,7 @@ banner_img: ../image/banner/design-pattern-banner.gif
 
 SOLID原則是面向對象設計和程式開發中的一組五個基本原則，旨在促進軟體的可讀性、可維護性和擴展性
 
-- 單一職責原則（Single Responsibility Principle, SRP）
+- [單一職責原則（Single Responsibility Principle, SRP）](../../../../2024/03/31/srp)
    每個類應該只有一個引起它變化的原因。這個原則強調，一個類應該專注於單一的職責或功能。當一個類承擔過多的職責時，它在面對修改的需求時將變得脆弱和不靈活。
 
 - [開放封閉原則 (OCP: Open Closed Principle)](../../../../2024/03/30/ocp)
