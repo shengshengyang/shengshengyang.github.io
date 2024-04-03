@@ -44,7 +44,7 @@ SOLID原則是面向對象設計和程式開發中的一組五個基本原則，
 - Singleton（單例模式）
 - Factory Method（工廠方法模式）
 - Abstract Factory（抽象工廠模式）
-- Builder（建造者模式）
+- [Builder（建造者模式）](../../../../2024/04/03/builder)
 - Prototype（原型模式）
 
 ### 結構型模式（Structural Patterns）
