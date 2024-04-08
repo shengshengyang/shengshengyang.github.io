@@ -23,7 +23,7 @@ Docker Compose 是一個用於定義和運行多容器Docker應用程序的工�
 mac / windows
 {% endnote %}
 
-安装docker desktop時會自動安裝，若不滿意版本
+安装docker desktop時會自動安裝，若不滿意版本須直接更換docker desktop 安裝包到想要的版本
 
 ### {% note info %}
 linux
