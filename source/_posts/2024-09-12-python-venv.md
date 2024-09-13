@@ -66,3 +66,13 @@ rm -rf myenv  # macOS / Linux
 rmdir /S myenv  # Windows
 ```
 
+# 更改PyCharm 的 設定
+
+## 1. 開啟`setting` `python interpreter`
+
+![](../image/pycharm_setting.png)
+![](../image/pycharm_interpreter.png)
+
+## 2. 將路徑指到剛建立的venv 環境當中
+
+![](../image/pycharm_interpreter_detail.png)
