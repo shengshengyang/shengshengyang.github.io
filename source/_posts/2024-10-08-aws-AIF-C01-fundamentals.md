@@ -2,10 +2,10 @@
 title: AWS AIF-C01 機器學習基礎篇
 date: 2024-10-08 15:42:54
 tags:
-  - [aws]
-  - [ai]
+- [aws]
+- [ai]
 category:
-  - [aws]
+- [aws]
 index_img: ../image/aws/aif_c01_index.png
 banner_img: ../image/aws/aif_c01_banner.png
 ---
@@ -48,10 +48,21 @@ traditionally divided into three broad categories: supervised learning, unsuperv
 trained on <span class="label label-success">labeled data</span>, learn a mapping function that can <span class="label label-primary">predict the output for new, unseen input data</span>
 在<span class="label label-success">標記數據</span>上訓練的。目標是學習一個映射函數，該函數可以<span class="label label-primary">預測新的、看不見的輸入數據的輸出</span>。
 
+#### Types of supervised ML
+
+- **Classification(分類)**: assign labels or categories to new 
+- **Regression(回歸)**: predicting continuous or numerical values based on one or more input variable
+
 ### Unsupervised learning(無監督學習)
-learn from <span class="label label-warning">unlabeled data</span>, discover inherent patterns, structures, or relationships within the input data
+learn from <span class="label label-warning">unlabeled 
+data</span>, discover inherent patterns, structures, or relationships within the input data
 
 從<span class="label label-warning">未標記數據</span>中學習的演算法, 目標是發現輸入數據中的固有模式、結構或關係
+
+#### Types of Unsupervised learning
+
+- **clustering(聚類)**: roups data into different clusters based on similar features or distances
+- **Dimensionality reduction(降維)**: reduce the number of features or dimensions
 
 ### Reinforcement learning(強化學習)
 
