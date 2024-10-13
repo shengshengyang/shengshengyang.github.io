@@ -242,5 +242,46 @@ should be transparent, explainable, and subject to oversight and accountability 
 
 ## AWS Governance and Compliance
 
+### ![aws_config.png](..%2Fimage%2Faws%2Faws_config.png)  AWS Config
+
+view of the configuration of AWS resources in your AWS account.
+AWS 資源配置的詳細視圖
+
+- `Resource administration`: Exercise governance over your resource configurations and detect resource misconfigurations.
+  對資源配置進行管理並偵測資源錯誤配置。
+- `Auditing and compliance`:providing access to the historical configurations of your resources.
+  提供資源歷史配置的存取權來協助您證明合規性。
+- `Managing and troubleshooting configuration changes`: how any resource you intend to modify is related to other resources
+  要修改的任何資源與其他資源的關係
+
+### ![aws_inspector.png](..%2Fimage%2Faws%2Faws_inspector.png) Amazon Inspector
+
+vulnerability management service,  automatically discovers and scans running AWS resources for known software vulnerabilities and unintended network exposure,  include Amazon Elastic Compute Cloud (Amazon EC2) instances, container images, and Lambda functions.
+漏洞管理服務, 會自動發現並掃描正在執行的 AWS 資源, 包括 Amazon Elastic Compute Cloud (Amazon EC2) 執行個體、容器映像和 Lambda 函數
+
+- `Package vulnerability`: common vulnerabilities and exposures (CVEs)
+  常見漏洞和風險 (CVE)
+- `Code vulnerability`:data leaks, weak cryptography, and missing encryption.
+  資料外洩、弱加密和缺失加密。
+- `Network reachability`:paths to Amazon EC2 instances
+  通往 Amazon EC2 執行個體的開放網路路徑
+
+### ![aws_audit_manager.png](..%2Fimage%2Faws%2Faws_audit_manager.png) AWS Audit Manager 
+`automates evidence collection` so you can conveniently assess whether your policies, procedures, and activities (also known as controls) are operating effectively.
+`自動收集證據`，以便您可以方便地評估您的政策、程序和活動（也稱為控制）是否有效運作。
+
+### ![aws_artifact.png](..%2Fimage%2Faws%2Faws_artifact.png) AWS Artifact
+
+`on-demand downloads of AWS security and compliance documents`, such as AWS ISO certifications, PCI reports, and SOC Reports.
+AWS `安全性和合規性文件的按需下載`，例如 AWS ISO 認證、PCI 報告和 SOC 報告。
+
+### ![aws_cloudtrail.png](..%2Fimage%2Faws%2Faws_cloudtrail.png) AWS Cloudtrail
+
+Actions taken by a user, role, or an AWS `service are recorded` as events in CloudTrail.  include actions taken in the AWS Management Console, AWS Command Line Interface (AWS CLI), and AWS SDKs and APIs.
+使用者、角色或 AWS `服務執行的操作將作為事件記錄`在 CloudTrail 中, 包括在 AWS 管理主控台、AWS 命令(AWS CLI) 列介面 (AWS CLI) 以及 AWS 開發工具包和 API 中執行的操作。
 
 
+### ![aws_trusted_advisor.png](..%2Fimage%2Faws%2Faws_trusted_advisor.png) AWS Trusted Advisor 
+
+optimize costs, increase performance, improve security and resilience, and operate at scale in the cloud.
+優化成本、提高效能、提高安全性和彈性
