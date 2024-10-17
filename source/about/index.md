@@ -6,14 +6,12 @@ layout: about
 ---
 ## 努力連結
 
-### aws ccp
-<a href="https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded">
-<img class="cr-badges-full-badge__img" src="https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner badge image. Certification. Foundational level. Issued by Amazon Web Services Training and Certification" width="340" height="340">
-</a>
+### AWS Certificate
+<div data-iframe-width="290" data-iframe-height="290" data-share-badge-id="e6c2a711-9d69-48ad-921f-cc613047f707" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="290" data-iframe-height="290" data-share-badge-id="0d4b6c32-1f16-406b-b7ae-e58362ebbe68" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="290" data-iframe-height="290" data-share-badge-id="18d81c33-b83f-4ac9-a6cc-11e7cc8a5c40" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
-[https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded](https://www.credly.com/badges/13257ca1-ca40-4080-9bac-a34c1c0083d8/embedded)
-
-### google skill boost
+### Google Skill Boost
 
 {% gi 6 3-3 %}
 <img alt="Badge for Build and Secure Networks in Google Cloud" src="https://cdn.qwiklabs.com/6QsPX5Wdg0eHWFed3ZKTbX2c88yVFGgaWPlYt%2BJdp4Q%3D">
