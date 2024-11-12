@@ -68,7 +68,7 @@ banner_img: ../image/banner/java_banner_brown.jpg
 
 **範例：**
 
-```
+```java
 @Transactional(isolation = Isolation.READ_UNCOMMITTED)
 public List<Product> getAllProducts() {
     // 查詢所有產品
@@ -97,7 +97,7 @@ public List<Product> getAllProducts() {
 
 #### **範例：**
 
-```
+```java
 @Transactional(isolation = Isolation.READ_COMMITTED)
 public Account getAccountById(Long id) {
     // 根據 ID 查詢帳戶
@@ -126,7 +126,7 @@ public Account getAccountById(Long id) {
 
 **範例：**
 
-```
+```java
 @Transactional(isolation = Isolation.REPEATABLE_READ)
 public void checkInventory(Long productId) {
     // 第一次查詢庫存
@@ -160,7 +160,7 @@ public void checkInventory(Long productId) {
 
 #### **範例：**
 
-```
+```java
 @Transactional(isolation = Isolation.SERIALIZABLE)
 public void transferFunds(Long fromAccountId, Long toAccountId, BigDecimal amount) {
     // 從來源帳戶扣款
@@ -193,7 +193,7 @@ public void transferFunds(Long fromAccountId, Long toAccountId, BigDecimal amoun
 
 #### **範例：**
 
-```
+```java
 @Transactional(isolation = Isolation.DEFAULT)
 public void processOrder(Order order) {
     // 處理訂單

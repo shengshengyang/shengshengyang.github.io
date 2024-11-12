@@ -64,7 +64,7 @@ placeOrder 方法需要確保所有操作在同一事務中執行，避免部分
 
 ### **範例：**
 
-```
+``` java
 @Service
 public class AuditService {
 
@@ -74,7 +74,6 @@ public class AuditService {
         auditRepository.save(record);
     }
 }
-
 @Service
 public class UserService {
 
@@ -107,7 +106,7 @@ public class UserService {
 
 ### **範例：**
 
-```
+```java
 @Service
 public class ProductService {
 
@@ -134,7 +133,7 @@ public class ProductService {
 
 ### **範例：**
 
-```
+```java
 @Service
 public class ReportService {
 
@@ -162,7 +161,7 @@ public class ReportService {
 
 ### **範例：**
 
-```
+```java
 @Service
 public class PaymentService {
 
@@ -215,7 +214,7 @@ public class OrderService {
 
 ### **範例：**
 
-```
+```java
 @Service
 public class NotificationService {
 
@@ -258,7 +257,7 @@ public class OrderService {
 
 ### **範例：**
 
-```
+```java
 @Service
 public class CacheService {
 
@@ -296,7 +295,7 @@ public class CacheService {
 
 #### **範例**：
 
-```
+```java
   @Transactional(propagation = Propagation.REQUIRED)
   public void updateAccount(Account account) {
       // 更新帳戶資料
@@ -316,7 +315,7 @@ public class CacheService {
 
 ####  **範例**：
 
-```
+```java
   @Transactional(propagation = Propagation.MANDATORY)
   public void validateTransaction(Transaction tx) {
       // 驗證交易
