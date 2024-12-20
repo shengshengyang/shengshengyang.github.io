@@ -9,8 +9,10 @@ category:
 index_img: ../image/banner/java_index.jpg
 banner_img: ../image/banner/factory_banner.png
 ---
-{%label success @目錄%}
-[design pattern 以java 為例](../../../../2024/03/30/design-pattern)
+{% note success %}
+目錄
+- **[design pattern 以java 為例](../../../../2024/03/30/design-pattern#創建型模式（Creational-Patterns）)**
+{% endnote %}
 
 ## 什麼是工廠模式?
 用於隱藏對象創建的具體實現細節，讓程式設計可以專注於使用物件，而不需要知道物件是如何被創建的。這種模式的主要目的是透過「工廠」來管理物件的創建，提升程式的可擴展性與可維護性。
