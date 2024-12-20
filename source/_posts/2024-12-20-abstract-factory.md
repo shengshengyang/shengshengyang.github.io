@@ -256,38 +256,45 @@ public class PlaceCoffeeFunctionality implements Functionality {
 #### 定義抽象工廠
 
 ```java
-public interface AbstractFurnitureFactory {
-    Furniture createFurniture(FurnitureType furnitureType);
+public abstract class AbstractFurnitureFactory {
+
+    protected abstract Style createStyle();
+
+    //將原本分散的 createStyle() 方法統一放在 AbstractFurnitureFactory 類別中
+    public Furniture createFurniture(FurnitureType furnitureType) {
+        Style style = createStyle();
+        return new FurnitureAdapter(furnitureType, style);
+    }
 }
+
 ```
 
 #### 實現具體的工廠
 
 ```java
-public class ModernFurnitureFactory implements AbstractFurnitureFactory {
-  @Override
-  public Furniture createFurniture(FurnitureType furnitureType) {
-    Style style = new ModernStyle();
-    return new FurnitureAdapter(furnitureType, style);
-  }
+
+// filepath: /factory/ModernFurnitureFactory.java
+public class ModernFurnitureFactory extends AbstractFurnitureFactory {
+    @Override
+    protected Style createStyle() {
+        return new ModernStyle();
+    }
 }
 
 // filepath: /factory/ClassicFurnitureFactory.java
-public class ClassicFurnitureFactory implements AbstractFurnitureFactory {
-  @Override
-  public Furniture createFurniture(FurnitureType furnitureType) {
-    Style style = new ClassicStyle();
-    return new FurnitureAdapter(furnitureType, style);
-  }
+public class ClassicFurnitureFactory extends AbstractFurnitureFactory {
+    @Override
+    protected Style createStyle() {
+        return new ClassicStyle();
+    }
 }
 
 // filepath: /factory/IndustrialFurnitureFactory.java
-public class IndustrialFurnitureFactory implements AbstractFurnitureFactory {
-  @Override
-  public Furniture createFurniture(FurnitureType furnitureType) {
-    Style style = new IndustrialStyle();
-    return new FurnitureAdapter(furnitureType, style);
-  }
+public class IndustrialFurnitureFactory extends AbstractFurnitureFactory {
+    @Override
+    protected Style createStyle() {
+        return new IndustrialStyle();
+    }
 }
 
 ```
