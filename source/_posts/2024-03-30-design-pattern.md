@@ -70,7 +70,12 @@ SOLID原則是面向對象設計和程式開發中的一組五個基本原則，
 ### SOLID
 
 
-### 推薦課程
+### 推薦資源
 [https://www.udemy.com/course/design-patterns-java/](https://www.udemy.com/course/design-patterns-java/)
 
+[https://refactoring.guru/](https://refactoring.guru/)
+
 接下來會以課程範例危機底去延伸每個pattern 的應用及實際code
+
+
+
