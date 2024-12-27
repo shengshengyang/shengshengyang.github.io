@@ -87,7 +87,7 @@ banner_img: ../image/banner/spring_security_banner.png
 
 ### 優化: 增加序列
 
-在兩段config 加上序列`@Order`，讓spring security 知道誰要先執行，並指忽略api/** 的csrf token
+在兩段config 加上序列`@Order`及加上`securityMatcher`，讓spring security 知道誰要先執行，並指忽略api/** 的csrf token
 
 ```java
 @Configuration
@@ -105,6 +105,8 @@ public class ApiSecurityConfig {
     @Bean
     public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         http
+                // 只攔截 /api/** 路徑 (必須符合此 matcher 才會進入此 FilterChain)
+                .securityMatcher("/api/**")
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/login", "/api/register").permitAll()
                         .anyRequest().authenticated() // 其他 /api/** 路徑需要認證
