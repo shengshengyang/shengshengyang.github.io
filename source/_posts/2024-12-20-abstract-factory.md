@@ -1,5 +1,5 @@
 ---
-title: 抽象工廠模式
+title: 抽象工廠模式（Abstract Factory Pattern）
 date: 2024-12-20 11:06:30
 tags:
 - [java]

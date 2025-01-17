@@ -53,9 +53,10 @@ SOLID原則是面向對象設計和程式開發中的一組五個基本原則，
 - [Adapter（適配器模式）](../../../../2025/01/05/adaptor)
 - Composite（組合模式）
 - Proxy（代理模式）
-- Facade（外觀模式）
+- [Facade（外觀模式）](../../../../2025/01/17/Facade)
 - Bridge（橋接模式）
 - Decorator（裝飾模式）
+- [Flyweight（享元模式）](../../../../2025/01/17/Flyweight)
 
 ### 行為型模式（Behavioral Patterns）
 對象間的通信，為對象間的通信提供更靈活的方式
