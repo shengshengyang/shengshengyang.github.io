@@ -1,5 +1,5 @@
 ---
-title: Factory 工廠模式
+title: 工廠模式（Factory Pattern）
 date: 2024-12-20 09:18:19
 tags:
 - [java]
