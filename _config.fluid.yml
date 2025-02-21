@@ -36,3 +36,7 @@ post:
     enable: true
     specific: false
     options:
+
+custom_css:
+  - /css/macBorder.css
+  - /css/cloudedGlass.css
