@@ -1,12 +1,5 @@
 navbar:
   blog_title: 轉職工程師，菜鳥爸紀錄
-footer:
-  content: '<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="DeanYang" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>'
-  statistics:
-    enable: true
-    source: "leancloud"  # 可选 leancloud | busuanzi  根据自己需求选择
-    pv_format: "總量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
-    uv_format: "總數 {} 人"
 index:
   slogan:
     enable: true
