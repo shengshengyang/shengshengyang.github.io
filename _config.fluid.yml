@@ -1,5 +1,5 @@
 navbar:
-  blog_title: 轉職工程師，菜鳥爸紀錄
+  blog_title: Full Stack Engineer background in healthcare
 index:
   slogan:
     enable: true
@@ -20,7 +20,7 @@ about:
   banner_img_height: 80  # available: 0 - 100
   avatar: ./image/logo/cat-logo.png
   name: Dean Yang
-  intro: banner是可愛的鵝子，從醫療業轉職來，努力的補上許多基礎知識並多方發展，目前是朝著偏後端的全端走。
+  intro: Innovative Full Stack Engineer with a unique blend of technical expertise and a background in healthcare, dedicated to delivering scalable, high-performance solutions for global markets.
   icons:
    - { class: 'iconfont icon-github-fill', link: 'https://github.com/shengshengyang', tip: 'GitHub' }
 
