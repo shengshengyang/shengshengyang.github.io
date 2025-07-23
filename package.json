@@ -27,5 +27,8 @@
     "hexo-theme-fluid": "^1.9.5-a",
     "hexo-theme-landscape": "^1.0.0",
     "live2d-widget-model-hijiki": "^1.0.5"
+  },
+  "overrides": {
+    "stylus": "https://github.com/stylus/stylus/archive/refs/tags/0.64.0.tar.gz"
   }
 }
