@@ -112,8 +112,8 @@ search:
   limit: 10000
 
 live2d:
-  enable: true
-  # enable: false
+#  enable: true
+  enable: false
   pluginRootPath: live2dw/ # Root path of plugin to be on the site (Relative)
   pluginJsPath: lib/ # JavaScript path related to plugin's root (Relative)
   pluginModelPath: assets/ # Relative model path related to plugin's root (Relative)
