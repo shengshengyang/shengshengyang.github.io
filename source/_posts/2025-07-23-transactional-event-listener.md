@@ -9,7 +9,6 @@ tags:
 categories:
 - [backend, Spring Framework]
 index_img: ../image/banner/spring_transaction_index.png
-banner_img: ../image/banner/spring_transaction_index.png
 ---
 
 ## 前言
