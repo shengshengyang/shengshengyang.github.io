@@ -22,6 +22,6 @@ serve
 hexo s
 ```
 
-目前市架站地址
+目前實際架站地址
 
 https://blog.deanyang.it.com/
