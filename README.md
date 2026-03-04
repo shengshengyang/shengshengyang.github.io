@@ -21,3 +21,7 @@ serve
 ``` shell
 hexo s
 ```
+
+目前實際架站地址
+
+https://blog.deanyang.it.com/
