@@ -46,6 +46,8 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 * `blocks[i]` 為 `'W'` 或 `'B'`
 * `1 <= k <= n`
 
+> 本文題解思路與程式碼整理自 LeetCode 題解作者「灵茶山艾府」，[影片講解](https://www.bilibili.com/video/BV1Kd4y1Z7Fv)。圖解為自行補充。
+
 ### 前置知識：滑動視窗
 
 視窗指的是陣列／字串中由起訖索引定義的一段連續元素，即閉區間 `[i, j]`。把視窗向右滑動 1 格，就變成 `[i+1, j+1]`：視窗**少了**元素 `i`，**多了**元素 `j+1`。
@@ -178,7 +180,7 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 </div>
 {% endraw %}
 
-### 解法
+### 解法（灵茶山艾府）
 
 ```java
 class Solution {
