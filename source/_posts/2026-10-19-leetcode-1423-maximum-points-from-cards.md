@@ -75,9 +75,9 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 定長視窗每次右移一格，少一個最左元素、多一個新元素，所以視窗和可以用 `s += 新 - 舊` 在 O(1) 內更新。前面幾篇（[2841](/2026/10/19/leetcode-2841-max-sum-almost-unique-subarray/)、[2461](/2026/10/19/leetcode-2461-max-sum-distinct-subarrays-k/)）已用過。
 
-### 思路
+### 方法一：逆向思維
 
-#### 方法一：逆向思維
+#### 思路
 
 拿走 `k` 張，剩下 `n − k` 張（`n` 是 `cardPoints` 的長度）。因為
 
@@ -95,13 +95,7 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 2. 視窗右移一格，`s` 增加 `cardPoints[i] - cardPoints[i - m]`，再用 `s` 更新 `minS`。
 3. 答案 = 全部元素和 − `minS`。
 
-#### 方法二：正向思維
-
-拿走的牌一定是「前 `j` 張 + 後 `k − j` 張」，`j` 從 `k` 到 `0`。答案是這 `k + 1` 種組合的最大值：先算前 `k` 張的和，之後每次把前面的一張換成後面的一張，更新最大值。
-
-### 圖解（可互動）
-
-#### 方法一圖解：逆向思維（視窗 = 剩下的牌）
+#### 圖解（可互動）
 
 下面用範例 1 示範方法一：`cardPoints = [1,2,3,4,5,6,1]`，`k = 3`，視窗長度 `m = 4`。視窗是「剩下的牌」，視窗外就是被拿走的牌。
 
@@ -309,7 +303,44 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 {% endraw %}
 
-#### 方法二圖解：正向思維（視窗 = 拿走的牌）
+#### 解法（灵茶山艾府）
+
+```java
+class Solution {
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int m = n - k;
+        int s = 0;
+        for (int i = 0; i < m; i++) {
+            s += cardPoints[i];
+        }
+
+        int total = s;
+        int minS = s;
+        for (int i = m; i < n; i++) {
+            total += cardPoints[i];
+            s += cardPoints[i] - cardPoints[i - m];
+            minS = Math.min(minS, s);
+        }
+        return total - minS;
+    }
+}
+```
+
+當 `m = 0`（`n = k`）時也正確：第一個迴圈不執行，`s = 0`、`minS = 0`，第二個迴圈只累加 `total`，最後回傳全部元素和。
+
+#### 複雜度分析
+
+* 時間複雜度：O(n)，其中 n 為 `cardPoints` 的長度。
+* 空間複雜度：O(1)。
+
+### 方法二：正向思維
+
+#### 思路
+
+拿走的牌一定是「前 `j` 張 + 後 `k − j` 張」，`j` 從 `k` 到 `0`。答案是這 `k + 1` 種組合的最大值：先算前 `k` 張的和，之後每次把前面的一張換成後面的一張，更新最大值。
+
+#### 圖解（可互動）
 
 方法二看的是「拿走的牌」：先拿前 `k` 張，之後每一步把頭段最右邊的一張放掉，改拿尾段最左邊的一張，共 `k + 1` 種組合，`ans` 取最大值。同樣用範例 1，這次 `ans` 會一路更新成 6 → 6 → 8 → 12。
 
@@ -400,35 +431,7 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 </div>
 {% endraw %}
 
-### 解法（灵茶山艾府）
-
-#### 方法一：逆向思維
-
-```java
-class Solution {
-    public int maxScore(int[] cardPoints, int k) {
-        int n = cardPoints.length;
-        int m = n - k;
-        int s = 0;
-        for (int i = 0; i < m; i++) {
-            s += cardPoints[i];
-        }
-
-        int total = s;
-        int minS = s;
-        for (int i = m; i < n; i++) {
-            total += cardPoints[i];
-            s += cardPoints[i] - cardPoints[i - m];
-            minS = Math.min(minS, s);
-        }
-        return total - minS;
-    }
-}
-```
-
-當 `m = 0`（`n = k`）時也正確：第一個迴圈不執行，`s = 0`、`minS = 0`，第二個迴圈只累加 `total`，最後回傳全部元素和。
-
-#### 方法二：正向思維
+#### 解法（灵茶山艾府）
 
 ```java
 class Solution {
@@ -447,10 +450,10 @@ class Solution {
 }
 ```
 
-### 複雜度分析
+#### 複雜度分析
 
-* 方法一：時間 O(n)，空間 O(1)。
-* 方法二：時間 O(k)，空間 O(1)。
+* 時間複雜度：O(k)。
+* 空間複雜度：O(1)。
 
 ### 思考題
 
