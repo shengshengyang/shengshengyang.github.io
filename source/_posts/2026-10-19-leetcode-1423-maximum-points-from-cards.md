@@ -216,6 +216,97 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 {% endraw %}
 
+範例 1 的最小值在第一個視窗就出現了，看不到「最佳值被更新」。換一組資料：`cardPoints = [3,1,5,2,1,1,6]`，`k = 3`，視窗長度 `m = 4`，四個視窗和依序是 11、9、9、10。`minS` 會在第二步從 11 更新成 9，答案 `19 − 9 = 10`（拿前 2 張加最後 1 張，或前 1 張加最後 2 張，都是 10）。
+
+{% raw %}
+
+<div class="swv" id="swv-b" style="--sw-n:7">
+<div class="ctl">
+  <button type="button" data-a="prev">上一步</button>
+  <button type="button" data-a="next">下一步</button>
+  <button type="button" data-a="reset">重置</button>
+  <span class="stp" style="font-size:13px;color:var(--sw-fg2);margin-left:auto"></span>
+</div>
+<div class="lab">cardPoints = [3,1,5,2,1,1,6]，k = 3（剩下的視窗長度 m = n − k = 4）</div>
+<div class="row r-tag"></div>
+<div class="row r-cells"></div>
+<div class="row r-ix"></div>
+<div class="lg">
+  <span><i style="border:1.5px solid var(--sw-accent)"></i>剩下的牌（視窗）</span>
+  <span><i style="background:var(--sw-card);border:1px solid var(--sw-line);opacity:.35"></i>被拿走的牌</span>
+  <span class="tagi">入 = 新進入</span>
+  <span class="tago">出 = 剛離開</span>
+</div>
+<div class="stats">
+  <div class="m"><span>視窗總和 s（剩下）</span><b class="sum">0</b></div>
+  <div class="m"><span>最小值 minS</span><b class="mn">0</b></div>
+  <div class="m"><span>答案 total − minS</span><b class="ans">0</b></div>
+</div>
+<div class="info"></div>
+<script>
+(function(){
+  var root=document.getElementById('swv-b');
+  var a=[3,1,5,2,1,1,6],k=3,n=a.length,m=n-k,steps=n-m+1,st=0,total=0;
+  for(var z=0;z<n;z++)total+=a[z];
+  var q=function(c){return root.querySelector(c)};
+  function calc(t){
+    var s=0,i;
+    for(i=0;i<m;i++)s+=a[i];
+    var mn=s,log={init:true,s:s,mn:mn,prev:s,lo:0,hi:m-1};
+    for(var w=1;w<=t;w++){
+      var add=a[w+m-1],rem=a[w-1];
+      s+=add-rem;
+      var prev=mn;
+      mn=Math.min(mn,s);
+      log={init:false,s:s,mn:mn,prev:prev,add:add,rem:rem,lo:w,hi:w+m-1};
+    }
+    return log;
+  }
+  function draw(){
+    var L=calc(st),x='',y='',z='';
+    for(var j=0;j<n;j++){
+      var tg='';
+      if(!L.init&&j===L.hi)tg='<span class="tagi">入</span>';
+      if(!L.init&&j===L.lo-1)tg='<span class="tago">出</span>';
+      x+='<div class="ix">'+tg+'</div>';
+      var cl='c'+(j>=L.lo&&j<=L.hi?' win':' dim');
+      if(!L.init&&j===L.hi)cl+=' in';
+      y+='<div class="'+cl+'">'+a[j]+'</div>';
+      z+='<div class="ix">'+j+'</div>';
+    }
+    q('.r-tag').innerHTML=x;
+    q('.r-cells').innerHTML=y;
+    q('.r-ix').innerHTML=z;
+    q('.sum').textContent=L.s;
+    q('.mn').textContent=L.mn;
+    q('.ans').textContent=total-L.mn;
+    q('.stp').textContent='視窗 ['+L.lo+', '+L.hi+']（'+(st+1)+' / '+steps+'）';
+    var t='';
+    if(L.init){
+      t='<div>初始化：前 m = '+m+' 張的和 s = <b>'+L.s+'</b>，minS = s</div>';
+    }else{
+      t='<div>入：cardPoints['+L.hi+'] = '+L.add+'，出：cardPoints['+(L.lo-1)+'] = '+L.rem+'</div>';
+      t+='<div>s 變化 '+(L.add-L.rem>=0?'+':'')+(L.add-L.rem)+'，變成 <b>'+L.s+'</b>；minS = min('+L.prev+', '+L.s+') = <b>'+L.mn+'</b></div>';
+    }
+    t+='<div>拿走的點數 = total − minS = '+total+' − '+L.mn+' = <b>'+(total-L.mn)+'</b></div>';
+    if(st===steps-1)t+='<div style="color:var(--sw-fg2)">視窗已到最右邊，答案 = '+(total-L.mn)+'</div>';
+    q('.info').innerHTML=t;
+  }
+  root.addEventListener('click',function(e){
+    var b=e.target.getAttribute&&e.target.getAttribute('data-a');
+    if(!b)return;
+    if(b==='prev')st=Math.max(0,st-1);
+    else if(b==='next')st=Math.min(steps-1,st+1);
+    else st=0;
+    draw();
+  });
+  draw();
+})();
+</script>
+</div>
+
+{% endraw %}
+
 ### 解法（灵茶山艾府）
 
 **方法一：逆向思維**
