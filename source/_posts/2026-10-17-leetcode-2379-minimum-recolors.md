@@ -180,7 +180,41 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 </div>
 {% endraw %}
 
-### 解法（灵茶山艾府）
+### 解法一：直接判斷 `W`（較好懂）
+
+與下方解法二思路相同，只是不用 ASCII 技巧，直接用 `if` 判斷字元是不是 `'W'`，可讀性較好。
+
+```java
+class Solution {
+    public int minimumRecolors(String blocks, int k) {
+        int cntW = 0;
+
+        // 1. 建立第一個長度為 k 的視窗，計算初始的 'W' 數量
+        for (int i = 0; i < k; i++) {
+            if (blocks.charAt(i) == 'W') {
+                cntW++;
+            }
+        }
+
+        int ans = cntW;
+
+        // 2. 視窗開始往右滑動：加入右邊 blocks[i]，移出左邊 blocks[i - k]
+        for (int i = k; i < blocks.length(); i++) {
+            if (blocks.charAt(i) == 'W') {
+                cntW++; // 新進入視窗的是 W，計數加 1
+            }
+            if (blocks.charAt(i - k) == 'W') {
+                cntW--; // 移出視窗的是 W，計數減 1
+            }
+            ans = Math.min(ans, cntW);
+        }
+
+        return ans;
+    }
+}
+```
+
+### 解法二：位元運算（灵茶山艾府）
 
 ```java
 class Solution {
@@ -202,7 +236,7 @@ class Solution {
 }
 ```
 
-### 小技巧：`s[i] & 1`
+### 解法二的小技巧：`s[i] & 1`
 
 `'W'` 的 ASCII 是 87（二進位最低位為 1），`'B'` 是 66（最低位為 0），所以 `s[i] & 1` 剛好把 `W` 當成 1、`B` 當成 0，不必寫 `if-else`。
 
