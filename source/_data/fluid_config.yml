@@ -1,0 +1,29 @@
+# Fluid 覆蓋設定：這裡的內容會覆蓋 themes/fluid/_config.yml
+# 文件：https://hexo.fluid-dev.com/docs/en/guide/#override-configuration
+
+navbar:
+  # 陣列會整個取代預設值，所以原有選單項目要一起列出
+  menu:
+    - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
+    - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+
+# 導覽列「刷題」下拉選單（scripts/leetcode-menu.js 讀取），只會列出實際有文章的 tag
+leetcode_menu:
+  enable: true
+  name: 刷題
+  icon: iconfont icon-archive-fill
+  after: tag # 放在哪個選單項目後面
+  items:
+    - { name: 全部題解, tag: LeetCode }
+    - { name: 滑動窗口, tag: sliding window }
+    - { name: 二分算法, tag: binary search }
+    - { name: 前綴和, tag: prefix sum }
+    - { name: 單調棧／隊列, tag: monotonic stack }
+    - { name: 堆, tag: heap }
+    - { name: 二叉樹 DFS, tag: dfs }
+    - { name: 回溯, tag: backtracking }
+    - { name: 動態規劃, tag: dynamic programming }
+    - { name: 貪心, tag: greedy }
