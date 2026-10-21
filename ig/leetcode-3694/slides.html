@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>LeetCode 3694 IG 輪播</title>
+<style>
+/* 配色沿用部落格 Fluid 主題：導覽列 #2f4154、連結 #0366d6、hover #30a9de、文字 #3c4858 */
+:root{
+  --slate:#2f4154; --slate2:#3b5068;
+  --text:#3c4858; --sub:#718096; --head:#1a202c;
+  --blue:#0366d6; --cyan:#30a9de;
+  --ok:#1a7f37; --bad:#cf222e;
+  --bg:#f3f5f7; --card:#fff; --line:#eaecef; --chip:#f6f8fa;
+  --sans:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  --mono:Consolas,"SFMono-Regular","Menlo",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:var(--sans);color:var(--text)}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--bg);padding:96px 84px 120px;display:none;flex-direction:column}
+body.all .slide{display:flex;margin:0 auto 24px}
+.slide.on{display:flex}
+.dark{background:var(--slate);color:#fff}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:30px;color:var(--sub);margin-bottom:44px}
+.dark .top{color:#b8c4d2}
+.kick{font-weight:700;letter-spacing:2px;color:var(--blue)}
+.dark .kick{color:var(--cyan)}
+h1{font-size:112px;line-height:1.18;color:var(--head);font-weight:800}
+.dark h1{color:#fff}
+h2{font-size:76px;line-height:1.25;color:var(--head);font-weight:800;margin-bottom:36px}
+p,li{font-size:46px;line-height:1.6}
+.sub{font-size:44px;line-height:1.55;color:var(--sub)}
+.dark .sub{color:#c5d0dc}
+b,.hl{color:var(--blue);font-weight:800}
+.dark b,.dark .hl{color:var(--cyan)}
+.bad{color:var(--bad);font-weight:800}
+.ok{color:var(--ok);font-weight:800}
+.card{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:40px 44px}
+.foot{position:absolute;left:84px;right:84px;bottom:44px;display:flex;align-items:center;gap:24px;font-size:26px;color:var(--sub)}
+.dark .foot{color:#b8c4d2}
+.bar{flex:1;height:8px;border-radius:4px;background:#dde3e9;overflow:hidden}
+.dark .bar{background:#4a6078}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:4px}
+.dark .bar i{background:var(--cyan)}
+.chips{display:flex;gap:14px;margin:18px 0}
+.chip{width:112px;height:112px;border-radius:20px;background:var(--chip);border:3px solid var(--line);display:flex;align-items:center;justify-content:center;font:700 58px var(--mono);color:var(--head)}
+.chip.win{border-color:var(--blue);background:#e8f1fc;color:var(--blue)}
+.chip.rm{border-color:var(--bad);background:#fdecee;color:var(--bad);text-decoration:line-through}
+.chip.dim{opacity:.35}
+.chip.sm{width:76px;height:76px;font-size:40px;border-radius:14px;border-width:2px}
+.code{background:#1f2a37;color:#e6edf3;border-radius:28px;padding:40px 44px;font:34px/1.65 var(--mono);white-space:pre}
+.code .c{color:#8fa3b8}
+.code .k{color:#ff9bb0}
+.code .h{background:rgba(48,169,222,.28);border-radius:6px;padding:0 4px}
+table{width:100%;border-collapse:collapse;font-size:40px}
+th{font-size:30px;color:var(--sub);font-weight:600;text-align:left;padding:0 10px 14px}
+td{padding:15px 10px;border-top:2px solid var(--line);vertical-align:middle}
+td.m{font-family:var(--mono);font-weight:700}
+tr.dup td{background:#fdecee}
+.eq{font:700 58px/1.5 var(--mono);color:var(--head)}
+.eq .r{color:var(--blue)}
+.pill{display:inline-block;padding:6px 22px;border-radius:999px;background:var(--blue);color:#fff;font-size:30px;font-weight:700}
+.dark .pill{background:var(--cyan);color:var(--slate)}
+.row{display:flex;align-items:center;gap:22px}
+.arrow{font-size:46px;color:var(--sub)}
+.sp{flex:1}
+.tag{font-size:30px;padding:4px 16px;border-radius:10px;background:#e8f1fc;color:var(--blue);font-weight:700}
+.tag.g{background:#e6f4ea;color:var(--ok)}
+.tag.r{background:#fdecee;color:var(--bad)}
+</style>
+</head>
+<body>
+
+<!-- 1 封面 -->
+<section class="slide dark" data-n="1">
+  <div class="top"><span class="kick">LeetCode 3694</span><span>雙週賽 166 · Q3</span></div>
+  <div class="sp"></div>
+  <h1>刪掉一段路，<br>終點會有<br><span class="hl">幾種</span>？</h1>
+  <p class="sub" style="margin-top:48px">一題「定長滑動視窗」<br>10 張圖，從暴力解滑到 O(n)</p>
+  <div class="sp"></div>
+  <div class="row"><span class="pill">往右滑 →</span><span class="sub" style="font-size:34px">Dean Yang Coding Blog</span></div>
+  <div class="foot"><div class="bar"><i style="width:10%"></i></div><span>1 / 10</span></div>
+</section>
+
+<!-- 2 題目白話 -->
+<section class="slide" data-n="2">
+  <div class="top"><span class="kick">題目白話</span><span>3694. 刪除子字串後不同的終點</span></div>
+  <h2>你在方格上走路</h2>
+  <div class="card" style="margin-bottom:34px">
+    <p><b>U</b> 上　<b>D</b> 下　<b>L</b> 左　<b>R</b> 右<br>每個字母走一格，從 <span class="hl">(0, 0)</span> 出發</p>
+  </div>
+  <p>規則：必須<span class="bad">刪掉恰好一段</span>長度為 <b>k</b> 的連續子字串，再照剩下的走。</p>
+  <p style="margin-top:20px"><b>問：</b>最後能到幾種「不同」的終點？</p>
+  <div class="card" style="margin-top:36px">
+    <div class="sub" style="font-size:34px">範例</div>
+    <div class="chips"><div class="chip">U</div><div class="chip">D</div><div class="chip">R</div><div class="chip">U</div><div class="chip">R</div></div>
+    <p style="font-size:40px"><span class="mono">s = "UDRUR"，k = 2</span></p>
+  </div>
+  <div class="foot"><div class="bar"><i style="width:20%"></i></div><span>2 / 10</span></div>
+</section>
+
+<!-- 3 暴力解 -->
+<section class="slide" data-n="3">
+  <div class="top"><span class="kick">先想暴力解</span><span>s = "UDRUR"，k = 2</span></div>
+  <h2>每種刪法都重走一遍</h2>
+  <div class="card">
+    <table>
+      <tr><th>刪掉</th><th>剩下</th><th>終點</th></tr>
+      <tr><td class="m bad">UD</td><td class="m">RUR</td><td class="m">(2, 1)</td></tr>
+      <tr><td class="m bad">DR</td><td class="m">UUR</td><td class="m">(1, 2)</td></tr>
+      <tr><td class="m bad">RU</td><td class="m">UDR</td><td class="m">(1, 0)</td></tr>
+      <tr><td class="m bad">UR</td><td class="m">UDR</td><td class="m">(1, 0)</td></tr>
+    </table>
+  </div>
+  <p style="margin-top:36px">共 <b>n − k + 1</b> 種刪法，每種要重走 <b>O(n)</b> 步</p>
+  <p>n 最大 10<sup>5</sup>，總共約 <span class="bad">O(n²)</span>，會超時。</p>
+  <p class="sub" style="margin-top:12px">有更聰明的做法 →</p>
+  <div class="foot"><div class="bar"><i style="width:30%"></i></div><span>3 / 10</span></div>
+</section>
+
+<!-- 4 關鍵觀察 -->
+<section class="slide" data-n="4">
+  <div class="top"><span class="kick">關鍵觀察</span><span>整題的核心</span></div>
+  <h2 style="font-size:64px">終點 = 完整終點 − 被刪段位移</h2>
+  <div class="card" style="margin-bottom:36px">
+    <p style="font-size:40px">不刪任何東西，從頭走到底：</p>
+    <div class="eq">U D R U R → <span class="r">(2, 1)</span></div>
+  </div>
+  <div class="card">
+    <p style="font-size:38px">刪掉 <b>"UR"</b>，就少走一次 ↑ 和一次 →</p>
+    <div class="eq">(2, 1) − <span class="r">(1, 1)</span> = <span class="ok">(1, 0)</span></div>
+  </div>
+  <p class="sub" style="margin-top:36px">換個角度：站在完整終點看，<br>刪掉 "UR" 就是偏移 <b>(−1, −1)</b>。</p>
+  <div class="foot"><div class="bar"><i style="width:40%"></i></div><span>4 / 10</span></div>
+</section>
+
+<!-- 5 問題轉換 -->
+<section class="slide" data-n="5">
+  <div class="top"><span class="kick">問題轉換</span><span>不用真的走</span></div>
+  <h2>完整終點是固定的，所以…</h2>
+  <div class="card" style="margin-bottom:26px;text-align:center;padding:30px 44px">
+    <p style="font-size:50px"><span class="hl">終點不同</span> ⇔ <span class="hl">被刪段的位移不同</span></p>
+  </div>
+  <p style="font-size:42px">問題變成：長度 k 的子字串有幾種<b>不同位移</b>？</p>
+  <div class="card" style="margin-top:34px">
+    <table>
+      <tr><th>子字串</th><th>位移</th><th></th></tr>
+      <tr><td class="m">UD</td><td class="m">(0, 0)</td><td></td></tr>
+      <tr><td class="m">DR</td><td class="m">(1, −1)</td><td></td></tr>
+      <tr><td class="m">RU</td><td class="m">(1, 1)</td><td></td></tr>
+      <tr class="dup"><td class="m">UR</td><td class="m">(1, 1)</td><td><span class="tag r">重複</span></td></tr>
+    </table>
+  </div>
+  <p style="margin-top:22px;font-size:42px">不同位移共 <span class="ok">3</span> 種 → 答案 <span class="ok">3</span></p>
+  <div class="foot"><div class="bar"><i style="width:50%"></i></div><span>5 / 10</span></div>
+</section>
+
+<!-- 6 滑動視窗 -->
+<section class="slide" data-n="6">
+  <div class="top"><span class="kick">滑動視窗</span><span>位移怎麼快速算</span></div>
+  <h2>右移一格：加新、減舊</h2>
+  <div class="card" style="margin-bottom:26px">
+    <div class="chips" style="margin:0 0 10px">
+      <div class="chip sm win">U</div><div class="chip sm win">D</div><div class="chip sm dim">R</div><div class="chip sm dim">U</div><div class="chip sm dim">R</div>
+    </div>
+    <div class="chips" style="margin:0 0 10px">
+      <div class="chip sm dim">U</div><div class="chip sm win">D</div><div class="chip sm win">R</div><div class="chip sm dim">U</div><div class="chip sm dim">R</div>
+    </div>
+    <p style="font-size:38px"><span class="tag g">入 R</span> +(1, 0)　<span class="tag r">出 U</span> −(0, 1)</p>
+    <p style="font-size:38px" class="mono">(0, 0) → <b>(1, −1)</b></p>
+  </div>
+  <div class="card">
+    <div class="chips" style="margin:0 0 10px">
+      <div class="chip sm dim">U</div><div class="chip sm dim">D</div><div class="chip sm win">R</div><div class="chip sm win">U</div><div class="chip sm dim">R</div>
+    </div>
+    <p style="font-size:38px"><span class="tag g">入 U</span> +(0, 1)　<span class="tag r">出 D</span> −(0, −1)</p>
+    <p style="font-size:38px" class="mono">(1, −1) → <b>(1, 1)</b></p>
+  </div>
+  <p class="sub" style="margin-top:28px;font-size:38px">每次只改 O(1)，不用重算整段。</p>
+  <div class="foot"><div class="bar"><i style="width:60%"></i></div><span>6 / 10</span></div>
+</section>
+
+<!-- 7 逐步圖解 -->
+<section class="slide" data-n="7">
+  <div class="top"><span class="kick">逐步圖解</span><span>集合一直記錄「看過的位移」</span></div>
+  <h2>丟進集合，自動去重</h2>
+  <div class="card">
+    <table>
+      <tr><th>視窗</th><th>位移</th><th>集合大小</th></tr>
+      <tr><td class="m">UD</td><td class="m">(0, 0)</td><td class="m">1</td></tr>
+      <tr><td class="m">DR</td><td class="m">(1, −1)</td><td class="m">2</td></tr>
+      <tr><td class="m">RU</td><td class="m">(1, 1)</td><td class="m">3</td></tr>
+      <tr class="dup"><td class="m">UR</td><td class="m">(1, 1)</td><td class="m">3 <span class="tag r">已有</span></td></tr>
+    </table>
+  </div>
+  <p style="margin-top:40px">集合大小 = <span class="ok" style="font-size:64px">3</span> 就是答案</p>
+  <p class="sub" style="margin-top:12px;font-size:38px">Java 可以把 (x, y) 壓成一個 long 當元素，<br>省下建物件的成本。</p>
+  <div class="foot"><div class="bar"><i style="width:70%"></i></div><span>7 / 10</span></div>
+</section>
+
+<!-- 8 程式碼 -->
+<section class="slide" data-n="8">
+  <div class="top"><span class="kick">程式碼</span><span>題解：灵茶山艾府</span></div>
+  <h2>核心只有一個迴圈</h2>
+  <div class="code"><span class="c">// 第一個視窗當基準 (0,0)，放進集合</span>
+set.add((long) n &lt;&lt; 20 | n);
+int x = 0, y = 0;
+
+<span class="k">for</span> (int i = k; i &lt; n; i++) {
+  char in  = s.charAt(i);
+  char out = s.charAt(i - k);
+  <span class="h">x += DIRS[in][0] - DIRS[out][0];</span>
+  <span class="h">y += DIRS[in][1] - DIRS[out][1];</span>
+  set.add((long) (x + n) &lt;&lt; 20 | (y + n));
+}
+<span class="k">return</span> set.size();</div>
+  <p class="sub" style="margin-top:32px;font-size:38px">高亮兩行就是「加新的、減舊的」。</p>
+  <div class="foot"><div class="bar"><i style="width:80%"></i></div><span>8 / 10</span></div>
+</section>
+
+<!-- 9 小技巧 / 易錯 -->
+<section class="slide" data-n="9">
+  <div class="top"><span class="kick">小技巧 · 易錯點</span><span>複雜度 O(n − k)</span></div>
+  <h2>三個細節別踩雷</h2>
+  <div class="card" style="margin-bottom:22px;padding:30px 44px">
+    <p style="font-size:44px;line-height:1.5"><span class="tag">1</span> <b>為什麼第一個視窗是 (0,0)？</b><br><span class="sub" style="font-size:36px;line-height:1.5">只看「相對第一個視窗」的差，是否重複的結果不變，連初始累加都省了。</span></p>
+  </div>
+  <div class="card" style="margin-bottom:22px;padding:30px 44px">
+    <p style="font-size:44px;line-height:1.5"><span class="tag">2</span> <b>座標要 + n</b><br><span class="sub" style="font-size:36px;line-height:1.5">位移可能是負的，壓成 long 前先加 n，避免位元運算出錯。</span></p>
+  </div>
+  <div class="card" style="padding:30px 44px">
+    <p style="font-size:44px;line-height:1.5"><span class="tag">3</span> <b>算的是位移，不是終點</b><br><span class="sub" style="font-size:36px;line-height:1.5">終點 = 完整終點 − 位移，兩者是一對一，用哪個去重都行。</span></p>
+  </div>
+  <div class="foot"><div class="bar"><i style="width:90%"></i></div><span>9 / 10</span></div>
+</section>
+
+<!-- 10 總結 -->
+<section class="slide dark" data-n="10">
+  <div class="top"><span class="kick">總結</span><span>定長滑窗三步</span></div>
+  <h2 style="color:#fff">定長滑窗模板</h2>
+  <div class="card" style="background:var(--slate2);border-color:#4a6078;color:#fff;margin-bottom:34px">
+    <p><b style="display:inline-block;width:170px">① 入</b>新元素進視窗<br><b style="display:inline-block;width:170px">② 更新</b>視窗滿了才記錄答案<br><b style="display:inline-block;width:170px">③ 出</b>舊元素離開</p>
+  </div>
+  <p class="sub">這題的「答案」就是位移，<br>丟進集合去重。</p>
+  <div class="sp"></div>
+  <div class="card" style="background:var(--slate2);border-color:#4a6078;color:#fff">
+    <p style="font-size:42px"><b>收藏</b>起來，下次遇到滑窗題翻出來看<br><b>追蹤</b>看下一題：LeetCode 3439 會議時間軸</p>
+  </div>
+  <p class="sub" style="margin-top:26px;font-size:32px">完整互動圖解在部落格（個人檔案連結）<br>題解思路與程式碼：灵茶山艾府</p>
+  <div class="foot"><div class="bar"><i style="width:100%"></i></div><span>10 / 10</span></div>
+</section>
+
+<script>
+(function(){
+  var m=location.search.match(/[?&]s=(\d+)/);
+  var slides=document.querySelectorAll('.slide');
+  if(m){
+    for(var i=0;i<slides.length;i++)if(slides[i].getAttribute('data-n')===m[1])slides[i].classList.add('on');
+  }else{
+    document.body.classList.add('all'); // 沒指定張數時，全部直向排開方便預覽
+  }
+})();
+</script>
+</body>
+</html>

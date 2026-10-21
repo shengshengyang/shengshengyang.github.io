@@ -7,3 +7,5 @@ public/
 .deploy*/
 _multiconfig.yml
 .idea
+# IG 輪播輸出圖片（由 ig/render.js 產生）
+ig/*/out/
