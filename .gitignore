@@ -7,5 +7,6 @@ public/
 .deploy*/
 _multiconfig.yml
 .idea
-# IG 輪播輸出圖片（由 ig/render.js 產生）
-ig/*/out/
+
+# IG 輪播貼文產出（slides.html、圖片、文案），由 .claude/skills/ig-post 產生
+ig/

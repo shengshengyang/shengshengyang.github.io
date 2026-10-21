@@ -1,5 +1,5 @@
 // 把 ig/<題目>/slides.html 逐張截成 1080x1350 PNG，輸出到 ig/<題目>/out/
-// 用法：node ig/render.js leetcode-3694
+// 用法（在專案根目錄）：node .claude/skills/ig-post/render.js <資料夾名稱>
 // 需要本機安裝 Chrome 或 Edge（不需要額外套件）
 const { execFileSync } = require('child_process');
 const fs = require('fs');
@@ -8,7 +8,7 @@ const { pathToFileURL } = require('url');
 
 const name = process.argv[2];
 if (!name) {
-  console.error('用法：node ig/render.js <資料夾名稱>');
+  console.error('用法：node .claude/skills/ig-post/render.js <資料夾名稱>');
   process.exit(1);
 }
 
@@ -24,7 +24,7 @@ if (!chrome) {
   process.exit(1);
 }
 
-const dir = path.resolve(__dirname, name);
+const dir = path.resolve(process.cwd(), 'ig', name);
 const html = fs.readFileSync(path.join(dir, 'slides.html'), 'utf8');
 const total = (html.match(/<section class="slide/g) || []).length;
 const outDir = path.join(dir, 'out');
