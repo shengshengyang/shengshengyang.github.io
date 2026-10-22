@@ -183,18 +183,25 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 #### 第三步：怎麼維護「不同字母的數目」
 
-不需要每次重新數。用長度 26 的陣列 `charCnt` 記錄視窗內每個字母出現幾次：
+不需要每次重新數。記錄視窗內每個字母出現幾次（`charCnt`），有兩種存法，下面分成兩個方法：
+
+* 方法一：用長度 26 的**陣列**，字母轉成 `c - 'a'` 當索引，另外用一個變數 `kinds` 記錄不同字母數。
+* 方法二：用 **`Map<Character, Integer>`**，直接拿字元當 key，不需要 ASCII 運算，不同字母數就是 `Map` 的 `size()`。
+
+以方法一為例，維護 `kinds` 的規則是：
 
 * 字母進入視窗：先看它之前的次數，如果是 0，代表是新字母，`kinds` 加一；再把次數加一。
 * 字母離開視窗：先把次數減一，如果減完是 0，代表視窗裡沒有這個字母了，`kinds` 減一。
 
-這和 [2841](/2026/10/19/leetcode-2841-max-sum-almost-unique-subarray/) 用雜湊表統計不同元素是同一個想法，這裡字母只有小寫 26 個，用陣列比雜湊表更快。
+這和 [2841](/2026/10/19/leetcode-2841-max-sum-almost-unique-subarray/) 統計不同元素是同一個想法。字母只有小寫 26 個時，陣列比雜湊表更快；改用 `Map` 則不需要假設字元範圍。
 
 #### 第四步：統計子串出現次數
 
 題目保證 `minSize <= 26`，子串很短，直接把子串字串當雜湊表的 key 就夠了（`substring` 一次最多複製 26 個字元）。如果 `minSize` 可以很大，就需要用字典樹來加速，這題不用。
 
-### 圖解（可互動）
+### 方法一：陣列計數（`int[26]`）
+
+#### 圖解（可互動）
 
 用範例 1：`s = "aababcaab"`，`maxLetters = 2`，視窗長度 `minSize = 3`。重點看三件事：
 
@@ -312,7 +319,7 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 範例 2 `s = "aaaa"`、`minSize = 3`：視窗是 `[0,2]` 和 `[1,3]`，都是 `"aaa"`，只有 1 種字母，`strCnt["aaa"] = 2`。題目允許重疊，所以答案是 2。
 
-### 解法（灵茶山艾府）
+#### 解法（灵茶山艾府）
 
 ```java
 class Solution {
@@ -363,7 +370,166 @@ class Solution {
 * `strCnt.merge(subStr, 1, Integer::sum)` 等價於 `++strCnt[subStr]`，並直接回傳更新後的次數。
 * 只有 `kinds <= maxLetters` 的視窗才把子串放進 `strCnt`，不合格的子串完全不計。
 
-### 複雜度分析
+#### 複雜度分析
 
 * 時間複雜度：O((n − minSize) · minSize)，其中 n 是 `s` 的長度。有 `n − minSize + 1` 個視窗，每個視窗取子串並計算雜湊要 O(minSize)。
 * 空間複雜度：O((n − minSize) · minSize)。雜湊表最多存 `n − minSize + 1` 個子串，每個長 `minSize`。
+
+### 方法二：Map 計數（不用 ASCII）
+
+#### 思路
+
+流程和方法一完全一樣，只把「視窗內每個字母出現幾次」從 `int[26]` 換成 `Map<Character, Integer>`，有兩個地方跟著改變：
+
+* **不再需要 `kinds` 變數**：只要保證「次數是 0 的字母不留在 Map 裡」，視窗內不同字母數就是 `charCnt.size()`。
+* **字母離開視窗時要刪除 key**：次數減到 0 就 `remove`，否則 `size()` 會把已經不在視窗裡的字母也算進去（和 [2841](/2026/10/19/leetcode-2841-max-sum-almost-unique-subarray/) 是同一個易錯點）。
+
+進入視窗不用先判斷是不是新字母，`merge(c, 1, Integer::sum)` 在 key 不存在時會直接放入 1。
+
+#### 圖解（可互動）
+
+同樣用範例 1。注意資訊區顯示的是 `Map` 的內容：字母離開視窗、次數歸零時，key 會**從 Map 裡消失**，`size` 才跟著減少，這就是方法二的重點。
+
+{% raw %}
+<div class="swv" id="swv-c" style="--sw-n:9">
+<div class="ctl">
+  <button type="button" data-a="prev">上一步</button>
+  <button type="button" data-a="next">下一步</button>
+  <button type="button" data-a="reset">重置</button>
+  <span class="stp" style="font-size:13px;color:var(--sw-fg2);margin-left:auto"></span>
+</div>
+<div class="lab">s = "aababcaab"，maxLetters = 2，窗口長度 = minSize = 3（Map 版：不同字母數 = charCnt.size()）</div>
+<div class="row r-tag"></div>
+<div class="row r-cells"></div>
+<div class="row r-ix"></div>
+<div class="lg">
+  <span><i style="border:1.5px solid var(--sw-accent)"></i>窗口</span>
+  <span><i style="border:1.5px solid var(--sw-bad)"></i>不同字母太多，不算</span>
+  <span class="tagi">入 = 新進入</span>
+  <span class="tago">出 = 更新後離開</span>
+</div>
+<div class="stats">
+  <div class="m"><span>charCnt.size()（不同字母數）</span><b class="kd">0</b></div>
+  <div class="m"><span>目前最大次數 ans</span><b class="ans">0</b></div>
+</div>
+<div class="info"></div>
+<script>
+(function(){
+  var root=document.getElementById('swv-c');
+  var s="aababcaab",maxL=2,k=3,n=s.length,st=0,steps=[];
+  var q=function(c){return root.querySelector(c)};
+  function copy(o){var r={},x;for(x in o)if(o[x]>0)r[x]=o[x];return r}
+  function fmt(o){var p=[],x;for(x in o)p.push(x+':'+o[x]);return '{'+p.join(', ')+'}'}
+  (function(){
+    var cc={},kinds=0,sc={},ans=0,i;
+    for(i=0;i<k-1;i++){if(!cc[s[i]])kinds++;cc[s[i]]=(cc[s[i]]||0)+1}
+    steps.push({init:true,kinds:kinds,cc:copy(cc),sc:{},ans:0,lo:0,hi:k-2});
+    for(i=k-1;i<n;i++){
+      var wasZero=!cc[s[i]];
+      if(wasZero)kinds++;
+      cc[s[i]]=(cc[s[i]]||0)+1;
+      var l=i-k+1,sub=s.substr(l,k),valid=kinds<=maxL,c=0,prev=ans;
+      if(valid){sc[sub]=(sc[sub]||0)+1;c=sc[sub];ans=Math.max(ans,c)}
+      var snap={init:false,i:i,l:l,sub:sub,valid:valid,c:c,prev:prev,kinds:kinds,cc:copy(cc),sc:copy(sc),ans:ans,lo:l,hi:i,add:s[i],out:s[l],wasZero:wasZero};
+      steps.push(snap);
+      cc[s[l]]--;
+      snap.leaveZero=cc[s[l]]===0;
+      if(cc[s[l]]===0)kinds--;
+    }
+  })();
+  var total=steps.length;
+  function draw(){
+    var L=steps[st],a='',b='',c='',j;
+    for(j=0;j<n;j++){
+      var tg='';
+      if(!L.init&&j===L.i)tg='<span class="tagi">入</span>';
+      if(!L.init&&j===L.l)tg='<span class="tago">出</span>';
+      a+='<div class="ix">'+tg+'</div>';
+      var cl='c'+(j>=L.lo&&j<=L.hi?' win':' dim');
+      if(!L.init&&j===L.i)cl+=' in';
+      if(!L.init&&!L.valid&&j>=L.lo&&j<=L.hi)cl+=' dupc';
+      b+='<div class="'+cl+'">'+s[j]+'</div>';
+      c+='<div class="ix">'+j+'</div>';
+    }
+    q('.r-tag').innerHTML=a;q('.r-cells').innerHTML=b;q('.r-ix').innerHTML=c;
+    q('.kd').textContent=L.kinds;
+    q('.ans').textContent=L.ans;
+    q('.stp').textContent=(st+1)+' / '+total;
+    var t='';
+    if(L.init){
+      t='<div>初始化：窗口還沒滿（要 '+k+' 個），先把前 '+(k-1)+' 個字母 merge 進 charCnt，size = <b>'+L.kinds+'</b></div>';
+    }else{
+      t='<div>入：s['+L.i+'] = "'+L.add+'"，'+(L.wasZero?'Map 裡還沒有這個 key，新增 key，size 加一':'Map 裡已有這個 key，次數加一，size 不變')+'，size = <b>'+L.kinds+'</b></div>';
+      t+=L.valid
+        ?'<div>size ≤ maxLetters = '+maxL+'，子串 "'+L.sub+'" 有效，出現次數變成 <b>'+L.c+'</b>；ans = max('+L.prev+', '+L.c+') = <b>'+L.ans+'</b></div>'
+        :'<div>size = '+L.kinds+' &gt; maxLetters = '+maxL+'，子串 "'+L.sub+'" 不算，跳過，ans 維持 <b>'+L.ans+'</b></div>';
+      t+='<div>出：s['+L.l+'] = "'+L.out+'" 離開窗口，次數減一'+(L.leaveZero?'，變成 0，把 key 從 Map 刪除，size 減一':'，還沒到 0，key 保留，size 不變')+'（給下一步用）</div>';
+    }
+    t+='<div style="color:var(--sw-fg2)">窗口內字母 charCnt（Map）= '+fmt(L.cc)+'</div>';
+    t+='<div style="color:var(--sw-fg2)">子串出現次數 strCnt = '+fmt(L.sc)+'</div>';
+    if(st===total-1)t+='<div style="color:var(--sw-fg2)">全部窗口看完，答案 = '+L.ans+'</div>';
+    q('.info').innerHTML=t;
+  }
+  root.addEventListener('click',function(e){
+    var b=e.target.getAttribute&&e.target.getAttribute('data-a');
+    if(!b)return;
+    if(b==='prev')st=Math.max(0,st-1);
+    else if(b==='next')st=Math.min(total-1,st+1);
+    else st=0;
+    draw();
+  });
+  draw();
+})();
+</script>
+</div>
+{% endraw %}
+
+#### 解法（自行改寫，思路同上）
+
+這份程式碼是我依照方法一的流程改寫的，不是題解原文；已用範例 1 到 4 實際執行驗證過（輸出分別是 2、2、3、0）。
+
+```java
+class Solution {
+    public int maxFreq(String s, int maxLetters, int minSize, int maxSize) {
+        Map<Character, Integer> charCnt = new HashMap<>();
+        Map<String, Integer> strCnt = new HashMap<>();
+        int ans = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            // 1. 進入視窗
+            charCnt.merge(s.charAt(i), 1, Integer::sum);
+
+            int left = i - minSize + 1;
+            if (left < 0) { // 視窗大小不足 minSize
+                continue;
+            }
+
+            // 2. 更新統計量：不同字母數就是 charCnt.size()
+            if (charCnt.size() <= maxLetters) {
+                String subStr = s.substring(left, left + minSize);
+                int cnt = strCnt.merge(subStr, 1, Integer::sum);
+                ans = Math.max(ans, cnt);
+            }
+
+            // 3. 離開視窗，為下一個迴圈做準備
+            char out = s.charAt(left);
+            if (charCnt.merge(out, -1, Integer::sum) == 0) {
+                charCnt.remove(out); // 次數歸零就刪掉，size() 才不會多算
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
+和方法一比較：
+
+* 沒有 `s[i] - 'a'`，也不假設字母範圍，題目如果改成任意字元（大寫、符號）也能直接用。
+* 少一個 `kinds` 變數，邏輯更集中，但要記得歸零時 `remove`。
+* `Map<Character, Integer>` 會有裝箱和雜湊的開銷，常數比 `int[26]` 慢；本題 `minSize ≤ 26`，兩者通過都沒問題。
+
+#### 複雜度分析
+
+* 時間複雜度：O((n − minSize) · minSize)。`charCnt` 的 key 最多 26 個，每次 `merge`／`remove` 是 O(1)，整體仍由取子串的成本主導。
+* 空間複雜度：O((n − minSize) · minSize)，`charCnt` 額外只多 O(1)（最多 26 個 key）。
