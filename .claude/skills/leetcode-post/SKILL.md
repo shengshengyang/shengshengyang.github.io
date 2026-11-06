@@ -134,6 +134,12 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 - 同樣要用 `{% raw %}` … `{% endraw %}` 包住，並用 node 把 script 抽出來跑一遍：每個 MODE、每個 target 的最終答案要等於 `lowerBound` 的預期值。
 - 範例見 `source/_posts/2026-10-27-leetcode-34-find-first-last-position.md`。
 
+### 計數表專用模板（枚舉右、維護左）
+
+「邊走邊用陣列／哈希表計數」的題（兩數之和、好數對這類）用 `widget-counter.html`。畫出 `nums`、目前的 `j`、左邊與 x 相同的格子（綠色，即新找到的 `i`）、計數表、`ans`，每個 `j` 拆成「加到答案」「更新計數」兩步，並有切換按鈕展示「順序顛倒會多算」。
+
+佔位符：`{{ID}}`（多張圖要不同）、`{{N}}`（陣列長度）、`{{ARR}}`、`{{MODE}}`（`array` 或 `map`，決定計數表畫成 `cnt[x]` 還是 `x → c`）、`{{LABEL}}`。一個方法一張圖；用 `{% raw %}` 包住；驗證時 `ok` 順序的最終 ans 要等於範例輸出。範例見 `source/_posts/2026-11-06-leetcode-1512-number-of-good-pairs.md`。計數邏輯不同（例如要存最後下標、要取最大值）時改 `build()` 與 `draw()`。
+
 ## 驗證與收尾
 
 - 專案有 `node_modules` 才跑 `npx hexo generate`，確認 `public/` 產出的文章內有 `id="swv-` 且沒有殘留 `{% raw`。沒有的話跳過，並在回覆說明未預覽。
