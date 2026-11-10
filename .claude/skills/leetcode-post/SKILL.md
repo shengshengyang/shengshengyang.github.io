@@ -142,6 +142,8 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 「查集合裡有沒有 −x／target − x」的題（找相反數、兩數之和這類）用 `widget-set.html`：每個 `j` 拆成「查」「加入」兩步，綠色格標出先出現的配對數。佔位符 `{{ID}}`、`{{N}}`、`{{ARR}}`、`{{LABEL}}`，查詢條件與 ans 更新寫在 `build()` 與 `draw()`。範例見 `source/_posts/2026-11-10-leetcode-2441-largest-positive-integer-with-negative.md`。
 
+「Map 記錄下標、找配對並更新最佳解」的題（和為 target 的最佳配對這類）用 `widget-posmap.html`：`{{CASES}}` 為 `[[nums, target, 按鈕文字], ...]`，可放多組範例切換；每個 i 拆成「查 target − x」「放進 Map」，並有跳過與最後交換的步驟。範例見 `source/_posts/2026-11-10-leetcode-4074-max-product-pair-sum-target.md`。
+
 ## 驗證與收尾
 
 - 專案有 `node_modules` 才跑 `npx hexo generate`，確認 `public/` 產出的文章內有 `id="swv-` 且沒有殘留 `{% raw`。沒有的話跳過，並在回覆說明未預覽。
