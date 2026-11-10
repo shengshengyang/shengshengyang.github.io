@@ -140,6 +140,8 @@ banner_img: ../image/banner/LeetCode_banner.jpeg
 
 佔位符：`{{ID}}`（多張圖要不同）、`{{N}}`（陣列長度）、`{{ARR}}`、`{{MODE}}`（`array` 或 `map`，決定計數表畫成 `cnt[x]` 還是 `x → c`）、`{{LABEL}}`。一個方法一張圖；用 `{% raw %}` 包住；驗證時 `ok` 順序的最終 ans 要等於範例輸出。範例見 `source/_posts/2026-11-06-leetcode-1512-number-of-good-pairs.md`。計數邏輯不同（例如要存最後下標、要取最大值）時改 `build()` 與 `draw()`。
 
+「查集合裡有沒有 −x／target − x」的題（找相反數、兩數之和這類）用 `widget-set.html`：每個 `j` 拆成「查」「加入」兩步，綠色格標出先出現的配對數。佔位符 `{{ID}}`、`{{N}}`、`{{ARR}}`、`{{LABEL}}`，查詢條件與 ans 更新寫在 `build()` 與 `draw()`。範例見 `source/_posts/2026-11-10-leetcode-2441-largest-positive-integer-with-negative.md`。
+
 ## 驗證與收尾
 
 - 專案有 `node_modules` 才跑 `npx hexo generate`，確認 `public/` 產出的文章內有 `id="swv-` 且沒有殘留 `{% raw`。沒有的話跳過，並在回覆說明未預覽。
